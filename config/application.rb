@@ -66,5 +66,9 @@ module VAGABONDS
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Heroku requires this to be false to prevent initializing the application and connecting to the 
+    # database while precompiling assets
+    config.assets.initialize_on_precompile=false
   end
 end
