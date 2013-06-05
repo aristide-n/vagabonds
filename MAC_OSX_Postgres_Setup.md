@@ -19,5 +19,5 @@ Here is the step by step to get that up and running:
     	$ rm .s.PGSQL.5432.lock
 
 5. Now start the server just by starting the Postgress app that you downloaded earlier. This will create a Postgres a default user and a default database both having the same name as the logged in username.
-
 6. Do `$ psql` to open the default database as the default user.
+7. Now you can fully use Rails :) Try `$ rails s`
