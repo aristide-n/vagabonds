@@ -1,6 +1,6 @@
 #Postgres Setup Instructions
 
-The default [database configuration](master/config/database.default.yml) in this repo assumes that the development environment database is provided by [Postgres.app](http://postgresapp.com). 
+The default [database configuration](config/database.default.yml) in this repo assumes that the development environment database is provided by [Postgres.app](http://postgresapp.com). 
 
 Here is the step by step to get that up and running: 
 
