@@ -1,1 +1,1 @@
-# Travel itinerary planning made easy and awesome
+# This branch is For UI design, nothing that requires rails to work. The code is in the UI directory

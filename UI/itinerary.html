@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script src="js/jquery.tagsinput.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/jquery.tagsinput.css" />
+  	<style type="text/css">
+		p.content-one {
+		    display:none;
+		}
+	</style>
+  	<script>
+	var availableTags = [
+	      "Hiking",
+	      "Brunch",
+	      "Museums",
+	      "Biking",
+	      "Beach",
+	      "Concert"
+	    ];
+
+	$(function() {
+	    // Datepicker
+	    $( "#start_date" ).datepicker();
+	    $( "#end_date" ).datepicker();
+
+	    // tags
+	    $('.expand-one').click(function(){
+	    $('.content-one').slideToggle('slow');
+	    });
+	    $('#tags').tagsInput({
+	        autocomplete_url: availableTags
+	      
+	    });
+	    $('.activity').click(function(evt){
+	      // $('#tags').addTag("Museums");});
+	      $('#tags').addTag($(evt.target).text());});
+	});
+	</script>
+</head>
+<body>
+	<header>
+		<div class="wrapper">
+			<img src="images/vagabonds_logo.png">
+			<span>A couple of memorable days in the SF Bay Area!!</span>
+		</div>
+	</header>
+	<div id="content">
+		<div class="wrapper">
+			<form>
+	    		<label for="start_date">Start Date: </label>
+		        <input name="start_date" id="start_date" type="text">		    	
+		        <label for="end_date">End Date: </label>
+		        <input name="end_date" id="end_date" type="text">
+	        	<label for="budget">Budget: </label>
+		        <input name="budget" id="budget" type="text">
+		        <div class="activity-tags">
+		        	<p class="expand-one">
+		        		<label for="tags">Prefered Activities: </label>
+		        		<input input name="tags" id="tags" value="Hiking, Brunch, Beach"/>
+		        	</p>
+				    <p class="content-one">
+				    	<span class = "activity">Hiking</span>
+				    	<span class = "activity">Brunch</span>
+				    	<span class = "activity">Museums</span>
+				    	<span class = "activity">Biking</span>
+				    	<span class = "activity">Beach</span>
+				    	<span class = "activity">Concert</span>
+				    </p>
+		        </div>
+		        <input class="auto-update" type="submit" value="Make Itinerary">
+		    </form>
+			<!-- <div class="panel right">
+			    <h1>Start a New Itinerary</h1>
+			    <form>
+			    	<div class="block">
+			    		<label for="start_date">Start Date: </label>
+				        <input name="start_date" id="start_date" type="text">
+			    	</div>
+			        <div class="block">
+				        <label for="end_date">End Date: </label>
+				        <input name="end_date" id="end_date" type="text">
+			        </div>
+			        <div class="block">
+			        	<label for="budget">Budget: </label>
+				        <input name="budget" id="budget" type="text">
+			        </div>
+			        <div class="block">
+			        	<label for="activity-type">Activity Type: </label>
+				        <input name="activity-type" id="activity-type" type="text">
+			        </div>
+			        <div class="block">
+			        	<input type="submit" value="Make Itinerary">
+			        </div>
+			    </form>
+			</div> -->
+		</div>
+	</div>
+	<footer>
+		<div class="wrapper">
+			Vagabonds - Trip Planning Made Easy and Awesome
+		</div>
+	</footer>
+</body>
+</html>
