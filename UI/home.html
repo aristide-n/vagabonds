@@ -37,14 +37,23 @@
 			        </div>
 			        <div class="block">
 			        	<label for="budget">Budget: </label>
-				        <input name="budget" id="budget" type="text">
+			        	<select name="budget" id = "budget">
+							<option value="free">Free</option>
+							<option value="cheap">Cheap</option>
+							<option value="Moderate" selected>Moderate</option>
+							<option value="dont-care">Don't Care</option>
+						</select>        
 			        </div>
 			        <div class="block">
 			        	<label for="activity-type">Activity Type: </label>
-				        <input name="activity-type" id="activity-type" type="text">
+				        <select name="activity-type" id = "activity-type">
+							<option value="outdoor">Outdoor</option>
+							<option value="city">City</option>
+							<option value="both" selected>Outdoor &amp; City</option>
+						</select>  
 			        </div>
 			        <div class="block">
-			        	<input type="submit" value="Make Itinerary">
+			        	<input type="submit" value="Make Itinerary" formaction="itinerary.html">
 			        </div>
 			    </form>
 			</div>

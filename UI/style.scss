@@ -28,6 +28,17 @@ body {
 	padding: 0;
 }
 
+select{
+	width: 178px;
+	height: 36px;
+	border: 1px solid $border-color;
+	padding: 0 10px;
+	outline: none;
+	font-size: 17px;
+	&:focus {
+		background: #FFFDF2;
+	}
+}
 input {
 	width: 156px;
 	height: 36px;
@@ -66,6 +77,10 @@ a {
 .wrapper {
 	width: $content-width;
 	margin: auto;
+}
+
+.activity {
+	background: #B0B0B0 
 }
 
 header {

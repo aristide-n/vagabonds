@@ -36,15 +36,31 @@
 	      
 	    });
 	    $('.activity').click(function(evt){
-	      // $('#tags').addTag("Museums");});
 	      $('#tags').addTag($(evt.target).text());});
 	});
+	//set form values
+	$(document).ready(function()
+		{
+			var formData = location.search;
+			formData = formData.substring(1, formData.length);
+
+			formData = unescape(formData);
+			var formArray = formData.split("&");
+			var startDate = formArray[0].substring(formArray[0].indexOf("=")+1, formArray[0].length);
+			var endDate = formArray[1].substring(formArray[1].indexOf("=")+1, formArray[1].length);
+			var budget = formArray[2].substring(formArray[2].indexOf("=")+1, formArray[2].length);
+
+			$('#start_date').val(startDate);
+			$('#end_date').val(endDate);
+			$('#budget').val(budget);
+
+		});
 	</script>
 </head>
 <body>
 	<header>
 		<div class="wrapper">
-			<img src="images/vagabonds_logo.png">
+			<a href="home.html"><img src="images/vagabonds_logo.png"></a>
 			<span>A couple of memorable days in the SF Bay Area!!</span>
 		</div>
 	</header>
@@ -59,15 +75,15 @@
 		        <input name="budget" id="budget" type="text">
 		        <div class="activity-tags">
 		        	<p class="expand-one">
-		        		<label for="tags">Prefered Activities: </label>
-		        		<input input name="tags" id="tags" value="Hiking, Brunch, Beach"/>
+		        		<label for="tags">Preferred Activities: </label>
+		        		<input name="tags" id="tags" value="Hiking, Brunch, Concert"/>
 		        	</p>
 				    <p class="content-one">
-				    	<span class = "activity">Hiking</span>
-				    	<span class = "activity">Brunch</span>
-				    	<span class = "activity">Museums</span>
-				    	<span class = "activity">Biking</span>
-				    	<span class = "activity">Beach</span>
+				    	<span class = "activity">Hiking</span> |
+				    	<span class = "activity">Brunch</span> |
+				    	<span class = "activity">Museums</span> |
+				    	<span class = "activity">Biking</span> |
+				    	<span class = "activity">Beach</span> |
 				    	<span class = "activity">Concert</span>
 				    </p>
 		        </div>
