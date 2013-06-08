@@ -73,3 +73,7 @@ pickle-email-*.html
 
 # vim artifacts
 **.swp
+
+# Sublime project files
+*.sublime-project
+*.sublime-workspace
