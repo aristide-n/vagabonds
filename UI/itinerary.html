@@ -72,10 +72,15 @@
 		        <label for="end_date">End Date: </label>
 		        <input name="end_date" id="end_date" type="text">
 	        	<label for="budget">Budget: </label>
-		        <input name="budget" id="budget" type="text">
+		        <select name="budget" id = "budget">
+					<option value="free">Free</option>
+					<option value="cheap">Cheap</option>
+					<option value="Moderate" selected>Moderate</option>
+					<option value="dont-care">Don't Care</option>
+				</select>  
 		        <div class="activity-tags">
 		        	<p class="expand-one">
-		        		<label for="tags">Preferred Activities: </label>
+		        		<label for="tags" class="tags_input">Preferred Activities:&nbsp&nbsp</label>
 		        		<input name="tags" id="tags" value="Hiking, Brunch, Concert"/>
 		        	</p>
 				    <p class="content-one">
