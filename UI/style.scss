@@ -1,6 +1,7 @@
 $text-color: #3F3E3D;
 $border-color: #D2D2D2;
 $content-width: 890px;
+$large-content-width: 1140px;
 
 @mixin antialiased($color){
 	color: $color;
@@ -111,13 +112,17 @@ header {
 #content {
 	margin-bottom: 15px;
 	// min-height: 560px;
-	min-height: 520px;
+	min-height: 480px;
 	div.wrapper {
 		margin: 38px auto;
 		img {
 		    border-radius: 6px;
 		    float: left;
 		}
+	}
+	div.itinerary {
+		width: $large-content-width;
+		margin: auto;
 	}
 }
 
@@ -135,34 +140,34 @@ footer {
 }
 
 div.panel {
-    border: 1px solid $border-color;
     background: white;
-    margin: 0;
-    margin-bottom: 29px;
-    border-radius: 6px;
+    margin-bottom: 38px;
     font-size: 14px;
+    text-align:center;
     &.right {
-	    width: 333px;
-	    height: 352px;
+    	border: 2px solid black; // TODO: remove THIS line 
+	    width: 480px;
+	    height: 600px;
 	    float: right;
+	}
+	&.left {
+		border: 1px solid $border-color;
+	    width: $large-content-width - 500;
+	    height: 600px;
+	    float: left;
 	}
 	* {
 	    margin: 5px 0;
 	}
-	form {
-	    padding: 0 23px;
-	}
-	h1 {
-	    border-bottom: 1px solid $border-color;
-	    margin: 5px 0;
-	    font-weight: normal;
-	    font-size: 18px;
-	    padding: 13px 23px;
-	    height: 23px;
-	}
 	p {
-	    padding: 0 24px;
-	    margin: 18px 0;
+		text-align: justify;
+		font-size: 18px;
+		padding: 23px 30px;
+		line-height: 2em;
+	}
+	input {
+		font-size: 16px;
+		width: 200px;
 	}
 }
 
@@ -171,7 +176,8 @@ div.block {
 	label { 
 		font-size: 17px;
 		width: 130px; 
-	}	
+	}
+}	
 
 label.tags_input {
 	vertical-align: top; 
@@ -179,39 +185,8 @@ label.tags_input {
 	position: relative
 }
 
+#map_canvas {
+	 width:360px; 
+	 height:320px; 
+	 margin: auto
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
