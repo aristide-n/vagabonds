@@ -139,7 +139,34 @@ footer {
 	}
 }
 
-div.panel {
+div.home_panel {
+    border: 1px solid $border-color;
+    background: white;
+    margin: 0;
+    margin-bottom: 29px;
+    border-radius: 6px;
+    font-size: 14px;
+    &.right {
+	    width: 333px;
+	    height: 352px;
+ 	    float: right;
+ 	}* {
+      margin: 5px 0;
+  }
+  form {
+      padding: 0 23px;
+  }
+  h1 {
+      border-bottom: 1px solid $border-color;
+      margin: 5px 0;
+      font-weight: normal;
+      font-size: 18px;
+      padding: 13px 23px;
+      height: 23px;
+  }
+}
+
+div.itinerary_panel {
     background: white;
     margin-bottom: 38px;
     font-size: 14px;
