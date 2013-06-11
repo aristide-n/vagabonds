@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="css/flexi/flexslider.css" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="js/flexi/jquery.flexslider.js"></script>
+  	<script>
+	$(window).load(function() {
+    	$('.flexslider').flexslider({
+    		animation: "slide"
+    	});
+  	});
+	</script>
+
+	<style>
+		.wrapper1 { 
+			margin: auto;
+			width: 910px;
+		}
+		.left{
+			width: 450px;
+			float: left;
+
+		}
+		.right{
+			width: 460px;
+			float: right;
+		}
+		.reviews {
+			width: 420px;
+			overflow:auto;
+			margin-bottom: 20px;
+		}
+
+		.user {
+			float: left;
+			width: 70px;
+			height: 220px;
+		}
+		.user > img {
+				width: 50px;
+				height: 50px;
+		}
+
+
+		.review > img {
+				width: 20px;
+				height: 20px;			
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="wrapper">
+			<img src="images/vagabonds_logo.png">
+			<span>A couple of memorable days in the SF Bay Area!!</span>
+		</div>
+	</header>
+
+		<div class="wrapper1">
+
+			<h2>Muir Woods National Monument</h2> 
+
+			<div class="left">
+
+			<p>Muir Woods National Monument is a unit of the National Park Service on the Pacific coast of southwestern Marin County, California, 12 miles north of San Francisco and part of the Golden Gate National Recreation Area.</p>
+
+			<p>Entry Fee: $ 7.00</p>
+			<p>Address: Mill Valley, CA 94941</p>
+			<p>Phone: (415) 388-2596 </p>
+			<p>Management: U.S. National Park Service </p>
+			<p>Website: <a href="http://www.nps.gov/muwo/index.htm">http://www.nps.gov/muwo/index.htm</a>
+
+			
+			<div class= "reviews">
+				<h3> User Reviews </h3>
+				<div class="user">
+				<img src = "images/user.jpg"/><br/>
+				Sam J.
+			</div>
+				<div class="review">
+					<img src="images/star.jpg"/>
+					<img src="images/star.jpg"/>
+					<img src="images/star.jpg"/>
+					<img src="images/star.jpg"/>
+					<img src="images/emptyStar.jpg"/><br/>
+					Just Beautiful!<br/><br/>
+
+					A great way to experience Muir Woods is to take the Ocean View Trail, The Lost Trail, and the Fern Creek Trail which completes the loop back to the main entrance.  <br/><br/>
+
+					The Ocean View Trail is a standard hike up the mountain.  It's pretty draining on the body but you'll be in awe once you see that you end up as high as the redwood tree tops.<br/><br/>
+					<a href="#">More reviews ...</a>
+				</div>
+				
+			</div>	
+		</div>		
+			<div class="right">
+			    
+			    <div class="flexslider">
+			 	<ul class="slides">
+			    	<li>
+			      		<img src="images/muir1.jpg" />
+			    	</li>
+			    	<li>
+			      		<img src="images/muir2.jpg" />
+			    	</li>
+			    	<li>
+			      		<img src="images/muir3.jpg" />
+			    	</li>
+			  	</ul>
+			</div>
+			
+			</div>
+		</div>
+
+	<footer>
+		<div class="wrapper">
+			Vagabonds - Trip Planning Made Easy and Awesome
+		</div>
+	</footer>
+</body>
+</html>
