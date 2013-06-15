@@ -77,7 +77,3 @@ pickle-email-*.html
 # Sublime project files
 *.sublime-project
 *.sublime-workspace
-
-
-# Ignore application configuration
-/config/application.yml
