@@ -13,7 +13,9 @@ client = GooglePlaces::Client.new(ENV['PLACES_API_KEY'])
 # Get a list of 20 places around the point
 spots = client.spots(37.772886,-122.419496)
 
-spots.each do |spot|
+spots.each_with_index do |spot, index|
+
+  puts "Adding models for place #{index}"
 
   # Get the details of a spot
   new_spot = client.spot(spot.reference)
