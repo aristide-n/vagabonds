@@ -1,8 +1,9 @@
 class CreatePlaces < ActiveRecord::Migration
   def change
     create_table :places do |t|
-      t.string :permanent_id
       t.string :name
+      t.integer :price_level
+      t.string :permanent_id_num
       t.string :reference
       t.string :address
       t.decimal :address_lat

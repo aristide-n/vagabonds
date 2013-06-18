@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
 require 'google_places'
 
 @client = GooglePlaces::Client.new(ENV['PLACES_API_KEY'])
@@ -13,7 +14,7 @@ spots = @client.spots(37.772886,-122.419496)
 spots.each do |spot|
   new_spot = @client.spot(spot.reference)
   Place.create(
-      :permanent_id =>new_spot.id,
+      :permanent_id_num =>new_spot.id,
       :name => new_spot.name,
       :reference => new_spot.reference,
       :address => new_spot.formatted_address,
@@ -22,6 +23,8 @@ spots.each do |spot|
       :phone_number => new_spot.formatted_phone_number,
       :rating => new_spot.rating,
       :url => new_spot.url,
-      :website => new_spot.website
+      :website => new_spot.website,
+      :price_level => new_spot.price_level,
+      :review_summary => new_spot.review_summary
   )
 end

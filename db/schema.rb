@@ -11,11 +11,42 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130614105153) do
+ActiveRecord::Schema.define(:version => 20130618043007) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "categories_places", :id => false, :force => true do |t|
+    t.integer "category_id"
+    t.integer "place_id"
+  end
+
+  create_table "events", :force => true do |t|
+    t.integer  "id_num"
+    t.string   "summary"
+    t.string   "url"
+    t.integer  "start_time"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "place_id"
+  end
+
+  create_table "periods", :force => true do |t|
+    t.integer  "day"
+    t.integer  "opening_time"
+    t.integer  "closing_time"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "place_id"
+  end
 
   create_table "places", :force => true do |t|
-    t.string   "permanent_id"
     t.string   "name"
+    t.integer  "price_level"
+    t.string   "permanent_id_num"
     t.string   "reference"
     t.string   "address"
     t.decimal  "address_lat"
@@ -24,8 +55,20 @@ ActiveRecord::Schema.define(:version => 20130614105153) do
     t.decimal  "rating"
     t.string   "url"
     t.string   "website"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.text     "review_summary"
+  end
+
+  create_table "reviews", :force => true do |t|
+    t.string   "author"
+    t.string   "text"
+    t.string   "author_url"
+    t.integer  "time"
+    t.decimal  "rating"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "place_id"
   end
 
 end
