@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130618043007) do
+ActiveRecord::Schema.define(:version => 20130618072421) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(:version => 20130618043007) do
 
   create_table "events", :force => true do |t|
     t.integer  "id_num"
-    t.string   "summary"
+    t.text     "summary"
     t.string   "url"
     t.integer  "start_time"
     t.datetime "created_at", :null => false
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20130618043007) do
     t.string   "name"
     t.integer  "price_level"
     t.string   "permanent_id_num"
-    t.string   "reference"
+    t.text     "reference"
     t.string   "address"
     t.decimal  "address_lat"
     t.decimal  "address_lng"
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(:version => 20130618043007) do
 
   create_table "reviews", :force => true do |t|
     t.string   "author"
-    t.string   "text"
+    t.text     "text"
     t.string   "author_url"
     t.integer  "time"
     t.decimal  "rating"

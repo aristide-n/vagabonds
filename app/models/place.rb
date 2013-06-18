@@ -5,4 +5,9 @@ class Place < ActiveRecord::Base
   has_many :events
   has_and_belongs_to_many :categories
 
+  def add_category(category)
+    self.categories.find_by_name(category) || (self.categories <<
+        Category.find_or_create_by_name(:name => category)).last
+  end
+
 end

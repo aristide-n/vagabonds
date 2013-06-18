@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/Aristide1o/google_places.git
-  revision: 598c886c2676f1e7db9e4c7d05306c0c5381a78d
+  revision: 142ef39899947a9e0bfde360da8df2eaa3e5b627
   specs:
     google_places (0.12.0)
       httparty
