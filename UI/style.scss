@@ -74,6 +74,9 @@ a {
 .wrapper {
 	width: $content-width;
 	margin: auto;
+	p.content-one {
+		    display:none;
+	}
 }
 
 .activity {
@@ -215,11 +218,11 @@ div.block {
 		width: 130px; 
 	}	
 
-label.tags_input {
-	vertical-align: top; 
-	top: 15px; 
-	position: relative
-}
+	label.tags_input {
+		vertical-align: top; 
+		top: 15px; 
+		position: relative
+	}
 
 }
 
@@ -230,9 +233,7 @@ label.tags_input {
 	margin: auto;
 	font-size: 30px;
 	font-weight:bold;
-	font-family:"Times New Roman",Georgia,Serif;
-
-	
+	font-family:"Times New Roman",Georgia,Serif;	
 }
 
 .act {
@@ -294,7 +295,6 @@ label.tags_input {
 }
 
 
-
 .act:hover .act-more {
 	display: inline;
 	font-size: 25px;
@@ -350,6 +350,47 @@ label.tags_input {
 	margin: auto
 }
 
+
+//for detail page
+
+.detail_content { 
+			margin: auto;
+			width: 910px;
+}
+
+.right{
+			width: 460px;
+			float: right;
+}
+
+.left{
+			width: 450px;
+			float: left;
+
+}
+
+.reviews {
+			width: 420px;
+			overflow:auto;
+			margin-bottom: 20px;
+			.review{
+				img{
+				width: 20px;
+				height: 20px;
+				}			
+			}
+}
+
+.user {
+		float: left;
+		width: 70px;
+		height: 220px;
+		
+		img {
+				width: 50px;
+				height: 50px;
+		}
+	}
 
 
 
