@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vagabonds</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script>
+      $(function() {
+          $( "#start_date" ).datepicker();
+          $( "#end_date" ).datepicker();
+      });
+  </script>
+</head>
+<body>
+
+<%= render :partial => "./layouts/header" %>
+<div id="content">
+  <div class="wrapper">
+    <%= image_tag "golden_gate2.jpg"%>
+
+    <div class="home_panel right">
+      <h1>Start a New Itinerary</h1>
+
+      <form>
+        <div class="block">
+          <label for="start_date">Start Date: </label>
+          <input name="start_date" id="start_date" type="text">
+        </div>
+        <div class="block">
+          <label for="end_date">End Date: </label>
+          <input name="end_date" id="end_date" type="text">
+        </div>
+        <div class="block">
+          <label for="budget">Budget: </label>
+          <select name="budget" id="budget">
+            <option value="free">Free</option>
+            <option value="cheap">Cheap</option>
+            <option value="Moderate" selected>Moderate</option>
+            <option value="dont-care">Don't Care</option>
+          </select>
+        </div>
+        <div class="block">
+          <label for="activity-type">Activity Type: </label>
+          <select name="activity-type" id="activity-type">
+            <option value="outdoor">Outdoor</option>
+            <option value="city">City</option>
+            <option value="both" selected>Outdoor &amp; City</option>
+          </select>
+        </div>
+        <div class="block">
+          <input type="submit" value="Make Itinerary" formaction="itinerary.html">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<%= render :partial => "./layouts/footer" %>
+</body>
+</html>

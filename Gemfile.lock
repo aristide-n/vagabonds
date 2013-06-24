@@ -1,5 +1,4 @@
 GIT
-  remote: git://github.com/Aristide1o/google_places.git
   revision: 607ae8011545dc2382cce6bd05ef0cf7b2611c25
   specs:
     google_places (0.12.0)
