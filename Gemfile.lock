@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/Aristide1o/google_places.git
-  revision: 142ef39899947a9e0bfde360da8df2eaa3e5b627
+  revision: 3b3909eb0bc589773e96d315257b5a0a17828b46
   specs:
     google_places (0.12.0)
       httparty
@@ -126,7 +126,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
-    rake (10.0.4)
+    rake (10.1.0)
     rb-fsevent (0.9.3)
     rdoc (3.12.2)
       json (~> 1.4)

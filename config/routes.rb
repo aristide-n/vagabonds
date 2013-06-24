@@ -57,4 +57,6 @@ VAGABONDS::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
 
   match '/' => 'welcome#index', :as => :root
+  match '/itinerary' => 'activities#itinerary'
+  match '/details' => 'activities#show'
 end
