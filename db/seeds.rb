@@ -6,7 +6,15 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# Places API wrapper
 require 'google_places'
+
+# Handles document parsing for getting place text from google plus
+require 'nokogiri'
+
+# Handles document access/fetching
+require 'open-uri'
+
 
 client = GooglePlaces::Client.new(ENV['PLACES_API_KEY'])
 
@@ -60,6 +68,38 @@ spots.each_with_index do |spot, index|
   end
 
   if place
+    # Pull places text from google plus
+
+    #####REVIEW SUMMARY #######
+
+    # The plus URL of the place
+    url = place.url
+
+    # Parse the document with Nokogiri
+    data = Nokogiri::HTML(open(url))
+
+    # Target the review summary using its div's class "Jya"
+    new_review_summary_element = data.at_css(".Jya")
+
+    new_review_summary = nil
+
+    if new_review_summary_element
+      new_review_summary = new_review_summary_element.text.strip
+    end
+
+    # Update the Place record if there is a review summary text
+    if new_review_summary
+      place.update_attributes(:review_summary => new_review_summary)
+
+      # Just a lil notice
+      puts "Updated the review summary for place #{index}"
+    end
+
+    #####ZAGAT REVIEW #######
+
+
+    # Add the place's associated model to the DB
+
     puts "Adding models for place #{index}"
 
     # Get a list of the spot's reviews
