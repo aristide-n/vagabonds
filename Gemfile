@@ -47,3 +47,4 @@ gem "better_errors", ">= 0.7.2", :group => :development
 gem "binding_of_caller", ">= 0.7.1", :group => :development, :platforms => [:mri_19, :rbx]
 gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 gem "google_places", :git => 'git://github.com/Aristide1o/google_places.git'
+gem "nokogiri"

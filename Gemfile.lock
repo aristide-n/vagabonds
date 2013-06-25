@@ -183,6 +183,7 @@ DEPENDENCIES
   google_places!
   hub (>= 1.10.2)
   jquery-rails
+  nokogiri
   pg (>= 0.15.0)
   quiet_assets (>= 1.0.2)
   rails (= 3.2.13)
