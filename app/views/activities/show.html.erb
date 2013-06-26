@@ -1,10 +1,4 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  <%= stylesheet_link_tag "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+
 
   <script>
       $(window).load(function() {
@@ -14,9 +8,7 @@
       });
   </script>
 
-</head>
-<body>
-<%= render :partial => "./layouts/header" %>
+
 
 <div class="detail_content">
 
@@ -73,7 +65,3 @@
 
   </div>
 </div>
-
-<%= render :partial => "./layouts/footer" %>
-</body>
-</html>

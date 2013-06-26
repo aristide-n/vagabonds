@@ -56,6 +56,7 @@ VAGABONDS::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 
+
   match '/' => 'welcome#index', :as => :root
   match '/itinerary' => 'activities#itinerary'
   match '/details' => 'activities#show'

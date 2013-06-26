@@ -1,4 +1,4 @@
-class ActivitiesController < ActionController::Base
+class ActivitiesController < ApplicationController
 
   def itinerary
 
