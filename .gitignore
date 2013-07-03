@@ -79,7 +79,7 @@ pickle-email-*.html
 *.sublime-workspace
 
 # Ignore application configuration
-/config/application.yml
+config/application.yml
 
 # private key file
 *.p12
