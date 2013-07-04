@@ -72,6 +72,8 @@ GEM
       mail (~> 2.2)
     erubis (2.7.0)
     eventmachine (1.0.3)
+    exception_notification (3.0.1)
+      actionmailer (>= 3.0.4)
     execjs (1.4.0)
       multi_json (~> 1.0)
     extlib (0.9.16)
@@ -204,6 +206,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   database_cleaner (>= 1.0.0.RC1)
   email_spec (>= 1.4.0)
+  exception_notification
   factory_girl_rails (>= 4.2.0)
   figaro (>= 0.6.3)
   google-api-client (>= 0.5)
