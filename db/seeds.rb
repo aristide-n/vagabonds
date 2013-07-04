@@ -58,7 +58,8 @@ spots.each_with_index do |spot, index|
           :url => new_spot.url,
           :website => new_spot.website,
           :price_level => new_spot.price_level,
-          :review_summary => new_spot.review_summary
+          :review_summary => new_spot.review_summary,
+          :duration => 1 + Random.rand(4)
       )
 
     rescue ActiveRecord::RecordInvalid => e
