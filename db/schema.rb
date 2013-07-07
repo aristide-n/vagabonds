@@ -19,6 +19,10 @@ ActiveRecord::Schema.define(:version => 20130701194337) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "categories_places", :id => false, :force => true do |t|
+    t.integer "category_id"
+    t.integer "place_id"
+  end
 
   create_table "events", :force => true do |t|
     t.integer  "id_num"
