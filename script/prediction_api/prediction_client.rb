@@ -21,7 +21,7 @@ end
 # Fetch places having review_summary and having no category
 #places = Place.arel_table
 summarized = Place.where("review_summary IS NOT NULL")
-categorized = Place.includes(:categories).where("categories.name IS NOT NULL")
+categorized = Place.where("category_id IS NOT NULL")
 
 summarized_uncategorized = summarized - categorized
 
@@ -41,7 +41,8 @@ summarized_uncategorized.each_with_index do |place, index|
   json_result = predict(input)
 
   if json_result["status"] == "success"
-    place.add_category(json_result["response"]["outputLabel"])
+    category = Category.find_or_create_by_name(:name => json_result["response"]["outputLabel"])
+    place.update_attribute(:category_id, category.id)
     puts "Predicted category\"#{json_result["response"]["outputLabel"]}\" for place #{index}"
   else
     puts "Oops! Prediction failed for place #{index}, Message: #{json_result["message"]}"
