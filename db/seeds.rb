@@ -182,6 +182,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
     place.category = Category.find_or_create_by_name("city")
+    place.save
 
     place.reviews.create(
         :author => "Jo P",
@@ -224,6 +225,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("city")
+  place.save
 
   place.reviews.create(
       :author => "jeniffer p",
@@ -266,6 +268,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("city")
+  place.save
 
   place.reviews.create(
       :author => "Wayne R",
@@ -308,6 +311,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("city")
+  place.save
 
   place.reviews.create(
       :author => "Rosemary D",
@@ -350,6 +354,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("city")
+  place.save
 
   place.reviews.create(
       :author => "JHR1976",
@@ -392,6 +397,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("city")
+  place.save
 
   place.reviews.create(
       :author => "tmmnova",
@@ -434,6 +440,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("city")
+  place.save
 
   place.reviews.create(
       :author => "CovingtonCat",
@@ -476,6 +483,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("city")
+  place.save
 
   place.reviews.create(
       :author => "Kelli S",
@@ -518,6 +526,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("city")
+  place.save
 
   place.reviews.create(
       :author => "Cody Rapol",
@@ -560,6 +569,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("city")
+  place.save
 
   place.reviews.create(
       :author => "oceanair73",
@@ -602,6 +612,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("city")
+  place.save
 
   place.reviews.create(
       :author => "Argyletraveler339",
@@ -644,6 +655,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("city")
+  place.save
 
   place.reviews.create(
       :author => "Rachael H",
@@ -693,6 +705,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("city")
+  place.save
 
   place.reviews.create(
       :author => "Michael Lawler",
@@ -768,6 +781,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("city")
+  place.save
 
   place.reviews.create(
       :author => "David Lippman",
@@ -815,6 +829,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("nature")
+  place.save
 
   place.reviews.create(
       :author => "Steven La Vinger",
@@ -855,6 +870,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("nature")
+  place.save
 
   place.reviews.create(
       :author => "Andy Xiang",
@@ -909,6 +925,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("nature")
+  place.save
 
   place.reviews.create(
       :author => "saber ogden",
@@ -949,6 +966,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("nature")
+  place.save
 
   place.reviews.create(
       :author => "Tom A",
@@ -981,6 +999,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("nature")
+  place.save
 
   place.reviews.create(
       :author => "Kristen Vacketta",
@@ -1058,6 +1077,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("nature")
+  place.save
 
   place.reviews.create(
       :author => "redyoga",
@@ -1091,6 +1111,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("nature")
+  place.save
 
   place.reviews.create(
       :author => "Ken H",
@@ -1131,6 +1152,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("nature")
+  place.save
 
   place.reviews.create(
       :author => "neopier",
@@ -1171,6 +1193,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("nature")
+  place.save
 
   place.reviews.create(
       :author => "Daniel Herzberg",
@@ -1225,6 +1248,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("food")
+  place.save
 
   place.reviews.create(
       :author => "Andy G",
@@ -1300,6 +1324,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("food")
+  place.save
 
   place.reviews.create(
       :author => "Randall Coard",
@@ -1382,6 +1407,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("food")
+  place.save
 
   place.reviews.create(
       :author => "Megan Page",
@@ -1470,6 +1496,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("food")
+  place.save
 
   place.reviews.create(
       :author => "Shannon Sweetser",
@@ -1552,6 +1579,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("food")
+  place.save
 
   place.reviews.create(
       :author => "Rory Carmichael",
@@ -1627,6 +1655,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("food")
+  place.save
 
   place.reviews.create(
       :author => "Katie Stoyka",
@@ -1681,6 +1710,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("food")
+  place.save
 
   place.reviews.create(
       :author => "Adam Lasnik",
@@ -1739,6 +1769,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("food")
+  place.save
 
   place.reviews.create(
       :author => "Greg Wright",
@@ -1821,6 +1852,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("nightlife")
+  place.save
 
   place.reviews.create(
       :author => "Mary Nguyen",
@@ -1875,6 +1907,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("nightlife")
+  place.save
 
   place.reviews.create(
       :author => "Tim McAndrew",
@@ -1922,6 +1955,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("nightlife")
+  place.save
 
   place.reviews.create(
       :author => "Phil Morton",
@@ -2025,6 +2059,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("nightlife")
+  place.save
 
   place.reviews.create(
       :author => "justin son",
@@ -2088,6 +2123,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("nightlife")
+  place.save
 
   place.reviews.create(
       :author => "Elijah Wolfe",
@@ -2142,6 +2178,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("nightlife")
+  place.save
 
   place.reviews.create(
       :author => "Brian Pepin",
@@ -2182,6 +2219,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("nightlife")
+  place.save
 
   place.reviews.create(
       :author => "April G",
@@ -2236,6 +2274,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("nightlife")
+  place.save
 
   place.reviews.create(
       :author => "Daisy Chavez",
@@ -2276,6 +2315,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("nightlife")
+  place.save
 
   place.reviews.create(
       :author => "Megan Page",
@@ -2378,6 +2418,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("nightlife")
+  place.save
 
   place.reviews.create(
       :author => "Winnie Fung",
@@ -2422,6 +2463,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
 # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("nightlife")
+  place.save
 
   place.reviews.create(
       :author => "Brian Reichholf",
@@ -2471,6 +2513,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("sports")
+  place.save
 
   place.reviews.create(
       :author => "Chin Lau",
@@ -2511,6 +2554,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("sports")
+  place.save
 
   place.reviews.create(
       :author => "Dee M",
@@ -2565,6 +2609,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("sports")
+  place.save
 
   place.reviews.create(
       :author => "Matt Stevenson",
@@ -2619,6 +2664,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("sports")
+  place.save
 
   place.reviews.create(
       :author => "Tori Lesikar",
@@ -2694,6 +2740,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("sports")
+  place.save
 
   place.reviews.create(
       :author => "Megan Stevenson",
@@ -2734,6 +2781,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("sports")
+  place.save
 
   place.reviews.create(
       :author => "Vera Devera",
@@ -2809,6 +2857,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("sports")
+  place.save
 
   place.reviews.create(
       :author => "Tiffanie Burrage",
@@ -2849,6 +2898,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("sports")
+  place.save
 
   place.reviews.create(
       :author => "Willard Dark",
@@ -2924,6 +2974,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("sports")
+  place.save
 
   place.reviews.create(
       :author => "Willard Dark",
@@ -2957,6 +3008,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("sports")
+  place.save
 
   place.reviews.create(
       :author => "Abhimanyu Ardagh",
@@ -3026,6 +3078,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("adventure")
+  place.save
 
   place.reviews.create(
       :author => "Julee Lee",
@@ -3073,6 +3126,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("adventure")
+  place.save
 
   place.reviews.create(
       :author => "Megan Stevenson",
@@ -3148,6 +3202,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("adventure")
+  place.save
 
   place.reviews.create(
       :author => "eric scheible",
@@ -3223,6 +3278,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("adventure")
+  place.save
 
   place.reviews.create(
       :author => "Fran V",
@@ -3291,6 +3347,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("adventure")
+  place.save
 
   place.reviews.create(
       :author => "Dee M",
@@ -3361,6 +3418,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("adventure")
+  place.save
 
   place.reviews.create(
       :author => "kelly C",
@@ -3421,6 +3479,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("adventure")
+  place.save
 
   place.reviews.create(
       :author => "Alan LaMielle",
@@ -3453,6 +3512,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("adventure")
+  place.save
 
   place.reviews.create(
       :author => "Mason W.",
@@ -3486,6 +3546,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("adventure")
+  place.save
 
   place.reviews.create(
       :author => "Tiffany H.",
@@ -3519,6 +3580,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create the associated models: Category, Reviews, Periods, and Photos
   place.category = Category.find_or_create_by_name("adventure")
+  place.save
 
   place.reviews.create(
       :author => "Rita W.",
