@@ -15,36 +15,33 @@
     <div class="home_panel right">
       <h1>Start a New Itinerary</h1>
 
-      <form>
+      <%= form_tag({controller: "places", action: "itinerary"}, method: "post") do |f| %>
         <div class="block">
-          <label for="start_date">Start Date: </label>
-          <input name="start_date" id="start_date" type="text">
+          <%= label_tag(:start_date, "Start Date:") %>
+          <%= text_field_tag(:start_date) %>
         </div>
         <div class="block">
-          <label for="end_date">End Date: </label>
-          <input name="end_date" id="end_date" type="text">
+          <%= label_tag(:end_date, "End Date:") %>
+          <%= text_field_tag(:end_date) %>
         </div>
         <div class="block">
-          <label for="budget">Budget: </label>
-          <select name="budget" id="budget">
-            <option value="free">Free</option>
-            <option value="cheap">Cheap</option>
-            <option value="Moderate" selected>Moderate</option>
-            <option value="dont-care">Don't Care</option>
-          </select>
+          <%= label_tag(:budget, "Budget:") %>
+          <%= select_tag(:budget, options_for_select([["Free", 0], ["Cheap", 1], ["Moderate",2], ["Don't Care", 3]], 2)) %>
         </div>
         <div class="block">
-          <label for="activity-type">Activity Type: </label>
-          <select name="activity-type" id="activity-type">
-            <option value="outdoor">Outdoor</option>
-            <option value="city">City</option>
-            <option value="both" selected>Outdoor &amp; City</option>
-          </select>
+          <%= label_tag(:categories, "Activity Type:") %>
+
+          <%= check_box_tag "categories[]", "City"%> City
+          <%= check_box_tag "categories[]", "Nature"%> Nature <br/>
+          <%= check_box_tag "categories[]", "Adventure"%> Adventure
+          <%= check_box_tag "categories[]", "Sports"%> Sports
+          <%= check_box_tag "categories[]", "Nightlife"%>  Nightlife
+
         </div>
         <div class="block">
-          <input type="submit" value="Make Itinerary" formaction="itinerary.html">
+          <%= submit_tag("Make Itinerary") %>
         </div>
-      </form>
+      <% end %>
     </div>
   </div>
 </div>

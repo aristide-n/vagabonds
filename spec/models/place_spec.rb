@@ -8,6 +8,8 @@ describe Place do
     @category_food = FactoryGirl.create(:food)
     @category_junk = FactoryGirl.create(:junk)
     @category_nightlife = FactoryGirl.create(:nightlife)
+    @category_sports = FactoryGirl.create(:sports)
+    @category_adventure = FactoryGirl.create(:adventure)
 
     @golden_gate = FactoryGirl.create(:golden_gate)
     @muir_woods =  FactoryGirl.create(:muir_woods)
@@ -43,7 +45,7 @@ describe Place do
   context "recommend places" do
 
     it "should give only places with matching categories" do
-        params = {"budget" => 5, "categories" => ["Nightlife", "City"] }
+        params = {"budget" => 5, "categories" => ["Nightlife", "City", "Adventure"] }
         Place.recommendations(params).should_not include(@muir_woods)
     end
 

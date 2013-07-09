@@ -90,7 +90,12 @@ class Place < ActiveRecord::Base
            end
 
       end
-
-    return recommended_places
+      d = 0
+      recommended_places.each do |place|
+        pp place.name
+        d += place.duration
+      end
+      pp d.round(2).to_s("F")
+      return recommended_places
   end
 end

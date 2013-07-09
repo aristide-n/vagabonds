@@ -12,7 +12,7 @@ $large-content-width: 1140px;
 	background: $c1;
 	background: -moz-linear-gradient(top,  $c1 $p1,  $c2 $p2,  $c3 $p3,  $c4 $p4);
 	background: -webkit-linear-gradient(linear, left top, left bottom, color-stop($p1, $c1), color-stop($p2, $c2), color-stop($p3, $c3), color-stop($p4, $c4));
-	background: -webkit-gradient(top, $c1 $p1, $c2 $p2, $c3 $p3, $c4 $p4); 
+	background: -webkit-gradient(top, $c1 $p1, $c2 $p2, $c3 $p3, $c4 $p4);
 	background: -o-linear-gradient(top, $c1 $p1, $c2 $p2, $c3 $p3, $c4 $p4);
 	background: -ms-linear-gradient(top, $c1 $p1, $c2 $p2, $c3 $p3, $c4 $p4);
 	background: linear-gradient(to bottom, $c1 $p1, $c2 $p2, $c3 $p3, $c4 $p4);
@@ -46,6 +46,11 @@ select{
 	@extend input;
 	width: 178px;
 	
+}
+
+input[type="checkbox"] {
+  width: auto;
+  height: auto;
 }
 
 input[type="submit"]{
@@ -181,7 +186,7 @@ div.itinerary_panel {
 //lame fix for now (conflicting styles in home and itinerary page)
 div.home_panel {
     border: 1px solid $border-color;
-    background: white;
+    background: url(/assets/floral50.jpg);
     margin: 0;
     margin-bottom: 29px;
     border-radius: 6px;
@@ -213,9 +218,9 @@ div.home_panel {
 
 div.block {
 	float: right;
-	label { 
-		font-size: 17px;
-		width: 130px; 
+    font-size: 17px;
+	label {
+		width: 130px;
 	}	
 
 	label.tags_input {
