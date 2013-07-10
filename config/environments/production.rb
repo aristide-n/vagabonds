@@ -84,7 +84,7 @@ VAGABONDS::Application.configure do
   config.action_mailer.smtp_settings = {
       :address              => "smtp.gmail.com",
       :port                 => 587,
-      :domain               => 'west.cmu.edu',
+      :domain               => ENV['SMTP_SERVER'],
       :user_name            => ENV['SMTP_SERVER_USERNAME'],
       :password             => ENV['SMTP_SERVER_PASSWORD'],
       :authentication       => 'plain',
