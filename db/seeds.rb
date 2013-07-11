@@ -156,6 +156,19 @@ if ENV['SEEDS_ENV'] == "development"
         # Add a Type instance to the place
         place.add_type(type)
       end
+
+      # Add the spot's photos
+      spot_photos = new_spot.photos
+
+      spot_photos.each do |photo_hash|
+        # Create a Photo instance
+        place.photos.create(
+            :reference_id => photo_hash[:photo_reference],
+            :height => photo_hash[:height],
+            :width => photo_hash[:width]
+        )
+      end
+
     end
 
   end
