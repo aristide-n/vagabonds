@@ -4,6 +4,7 @@ class Place < ActiveRecord::Base
   has_many :periods
   has_many :reviews
   has_many :events
+  has_many :photos
   belongs_to :category
   has_and_belongs_to_many :types
 
