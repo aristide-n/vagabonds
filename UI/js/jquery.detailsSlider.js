@@ -1,6 +1,6 @@
 /*
- * jQuery itinerarySlider v2.1
- * http://www.woothemes.com/itineraryslider/
+ * jQuery FlexSlider v2.1
+ * http://www.woothemes.com/flexslider/
  *
  * Copyright 2012 WooThemes
  * Free to use under the GPLv2 license.
@@ -11,10 +11,10 @@
 
 ;(function ($) {
 
-  //itinerarySlider: Object Instance
-  $.itineraryslider = function(el, options) {
+  //FlexSlider: Object Instance
+  $.flexslider = function(el, options) {
     var slider = $(el),
-        vars = $.extend({}, $.itineraryslider.defaults, options),
+        vars = $.extend({}, $.flexslider.defaults, options),
         namespace = vars.namespace,
         touch = ("ontouchstart" in window) || window.DocumentTouch && document instanceof DocumentTouch,
         eventType = (touch) ? "touchend" : "click",
@@ -26,7 +26,7 @@
         methods = {};
 
     // Store a reference to the slider object
-    $.data(el, "itineraryslider", slider);
+    $.data(el, "flexslider", slider);
 
     // Privat slider methods
     methods = {
@@ -92,7 +92,7 @@
             if (!slider.animating && (keycode === 39 || keycode === 37)) {
               var target = (keycode === 39) ? slider.getTarget('next') :
                            (keycode === 37) ? slider.getTarget('prev') : false;
-              slider.itineraryAnimate(target, vars.pauseOnAction);
+              slider.flexAnimate(target, vars.pauseOnAction);
             }
           });
         }
@@ -101,7 +101,7 @@
           slider.bind('mousewheel', function(event, delta, deltaX, deltaY) {
             event.preventDefault();
             var target = (delta < 0) ? slider.getTarget('next') : slider.getTarget('prev');
-            slider.itineraryAnimate(target, vars.pauseOnAction);
+            slider.flexAnimate(target, vars.pauseOnAction);
           });
         }
 
@@ -143,9 +143,9 @@
             e.preventDefault();
             var $slide = $(this),
                 target = $slide.index();
-            if (!$(vars.asNavFor).data('itineraryslider').animating && !$slide.hasClass('active')) {
+            if (!$(vars.asNavFor).data('flexslider').animating && !$slide.hasClass('active')) {
               slider.direction = (slider.currentItem < target) ? "next" : "prev";
-              slider.itineraryAnimate(target, vars.pauseOnAction, false, true, true);
+              slider.flexAnimate(target, vars.pauseOnAction, false, true, true);
             }
           });
         }
@@ -186,7 +186,7 @@
 
             if (!$this.hasClass(namespace + 'active')) {
               slider.direction = (target > slider.currentSlide) ? "next" : "prev";
-              slider.itineraryAnimate(target, vars.pauseOnAction);
+              slider.flexAnimate(target, vars.pauseOnAction);
             }
           });
           // Prevent iOS click event bug
@@ -207,7 +207,7 @@
 
             if (!$this.hasClass(namespace + 'active')) {
               (target > slider.currentSlide) ? slider.direction = "next" : slider.direction = "prev";
-              slider.itineraryAnimate(target, vars.pauseOnAction);
+              slider.flexAnimate(target, vars.pauseOnAction);
             }
           });
           // Prevent iOS click event bug
@@ -254,7 +254,7 @@
           slider.directionNav.bind(eventType, function(event) {
             event.preventDefault();
             var target = ($(this).hasClass(namespace + 'next')) ? slider.getTarget('next') : slider.getTarget('prev');
-            slider.itineraryAnimate(target, vars.pauseOnAction);
+            slider.flexAnimate(target, vars.pauseOnAction);
           });
           // Prevent iOS click event bug
           if (touch) {
@@ -374,9 +374,9 @@
                 target = (updateDx > 0) ? slider.getTarget('next') : slider.getTarget('prev');
 
             if (slider.canAdvance(target) && (Number(new Date()) - startT < 550 && Math.abs(updateDx) > 50 || Math.abs(updateDx) > cwidth/2)) {
-              slider.itineraryAnimate(target, vars.pauseOnAction);
+              slider.flexAnimate(target, vars.pauseOnAction);
             } else {
-              if (!fade) slider.itineraryAnimate(slider.currentSlide, vars.pauseOnAction, true);
+              if (!fade) slider.flexAnimate(slider.currentSlide, vars.pauseOnAction, true);
             }
           }
           el.removeEventListener('touchend', onTouchEnd, false);
@@ -416,11 +416,11 @@
         }
       },
       sync: function(action) {
-        var $obj = $(vars.sync).data("itineraryslider"),
+        var $obj = $(vars.sync).data("flexslider"),
             target = slider.animatingTo;
 
         switch (action) {
-          case "animate": $obj.itineraryAnimate(target, vars.pauseOnAction, false, true); break;
+          case "animate": $obj.flexAnimate(target, vars.pauseOnAction, false, true); break;
           case "play": if (!$obj.playing && !$obj.asNav) { $obj.play(); } break;
           case "pause": $obj.pause(); break;
         }
@@ -428,15 +428,15 @@
     }
 
     // public methods
-    slider.itineraryAnimate = function(target, pause, override, withSync, fromNav) {
+    slider.flexAnimate = function(target, pause, override, withSync, fromNav) {
 
       if (asNav && slider.pagingCount === 1) slider.direction = (slider.currentItem < target) ? "next" : "prev";
 
       if (!slider.animating && (slider.canAdvance(target, fromNav) || override) && slider.is(":visible")) {
         if (asNav && withSync) {
-          var master = $(vars.asNavFor).data('itineraryslider');
+          var master = $(vars.asNavFor).data('flexslider');
           slider.atEnd = target === 0 || target === slider.count - 1;
-          master.itineraryAnimate(target, true, false, true, fromNav);
+          master.flexAnimate(target, true, false, true, fromNav);
           slider.direction = (slider.currentItem < target) ? "next" : "prev";
           master.direction = slider.direction;
 
@@ -554,7 +554,7 @@
 
     // SLIDESHOW:
     slider.animateSlides = function() {
-      if (!slider.animating) slider.itineraryAnimate(slider.getTarget("next"));
+      if (!slider.animating) slider.flexAnimate(slider.getTarget("next"));
     }
     // SLIDESHOW:
     slider.pause = function() {
@@ -775,7 +775,7 @@
       // re-setup the slider to accomdate new slide
       slider.setup();
 
-      //itinerarySlider: added() Callback
+      //FlexSlider: added() Callback
       vars.added(slider);
     }
     slider.removeSlide = function(obj) {
@@ -801,17 +801,17 @@
       // re-setup the slider to accomdate new slide
       slider.setup();
 
-      // itinerarySlider: removed() Callback
+      // FlexSlider: removed() Callback
       vars.removed(slider);
     }
 
-    //itinerarySlider: Initialize
+    //FlexSlider: Initialize
     methods.init();
   }
 
-  //itinerarySlider: Default Settings
-  $.itineraryslider.defaults = {
-    namespace: "itinerary-",             //{NEW} String: Prefix string attached to the class of every element generated by the plugin
+  //FlexSlider: Default Settings
+  $.flexslider.defaults = {
+    namespace: "flex-",             //{NEW} String: Prefix string attached to the class of every element generated by the plugin
     selector: ".slides > li",       //{NEW} Selector: Must match a simple pattern. '{container} > {slide}' -- Ignore pattern at your own peril
     animation: "fade",              //String: Select your animation type, "fade" or "slide"
     easing: "swing",               //{NEW} String: Determines the easing method used in jQuery transitions. jQuery easing plugin is supported!
@@ -848,8 +848,8 @@
     playText: "Play",               //String: Set the text for the "play" pausePlay item
 
     // Special properties
-    controlsContainer: "",          //{UPDATED} jQuery Object/Selector: Declare which container the navigation elements should be appended too. Default container is the itinerarySlider element. Example use would be $(".itineraryslider-container"). Property is ignored if given element is not found.
-    manualControls: "",             //{UPDATED} jQuery Object/Selector: Declare custom control navigation. Examples would be $(".itinerary-control-nav li") or "#tabs-nav li img", etc. The number of elements in your controlNav should match the number of slides/tabs.
+    controlsContainer: "",          //{UPDATED} jQuery Object/Selector: Declare which container the navigation elements should be appended too. Default container is the FlexSlider element. Example use would be $(".flexslider-container"). Property is ignored if given element is not found.
+    manualControls: "",             //{UPDATED} jQuery Object/Selector: Declare custom control navigation. Examples would be $(".flex-control-nav li") or "#tabs-nav li img", etc. The number of elements in your controlNav should match the number of slides/tabs.
     sync: "",                       //{NEW} Selector: Mirror the actions performed on this slider with another slider. Use with care.
     asNavFor: "",                   //{NEW} Selector: Internal property exposed for turning the slider into a thumbnail navigation for another slider
 
@@ -870,8 +870,8 @@
   }
 
 
-  //itinerarySlider: Plugin Function
-  $.fn.itineraryslider = function(options) {
+  //FlexSlider: Plugin Function
+  $.fn.flexslider = function(options) {
     if (options === undefined) options = {};
 
     if (typeof options === "object") {
@@ -883,20 +883,20 @@
         if ($slides.length === 1) {
           $slides.fadeIn(400);
           if (options.start) options.start($this);
-        } else if ($this.data('itineraryslider') == undefined) {
-          new $.itineraryslider(this, options);
+        } else if ($this.data('flexslider') == undefined) {
+          new $.flexslider(this, options);
         }
       });
     } else {
       // Helper strings to quickly perform functions on the slider
-      var $slider = $(this).data('itineraryslider');
+      var $slider = $(this).data('flexslider');
       switch (options) {
         case "play": $slider.play(); break;
         case "pause": $slider.pause(); break;
-        case "next": $slider.itineraryAnimate($slider.getTarget("next"), true); break;
+        case "next": $slider.flexAnimate($slider.getTarget("next"), true); break;
         case "prev":
-        case "previous": $slider.itineraryAnimate($slider.getTarget("prev"), true); break;
-        default: if (typeof options === "number") $slider.itineraryAnimate(options, true);
+        case "previous": $slider.flexAnimate($slider.getTarget("prev"), true); break;
+        default: if (typeof options === "number") $slider.flexAnimate(options, true);
       }
     }
   }

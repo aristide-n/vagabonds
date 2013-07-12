@@ -19,6 +19,10 @@ input, select {
 select {
   width: 178px; }
 
+input[type="checkbox"], select[type="checkbox"] {
+  height: 20px;
+  width: 125px; }
+
 input[type="submit"], select[type="submit"] {
   height: 36px;
   border: 1px solid #7BC574;
@@ -49,30 +53,64 @@ a {
   width: 890px;
   margin: auto; }
 
+.wrapper2 {
+  text-align: center;
+  padding: 8px; }
+  .wrapper2 input, .wrapper2 select {
+    width: 100px;
+    height: 28px;
+    border: 1px solid #d2d2d2;
+    padding: 0 10px;
+    outline: none;
+    font-size: 14px; }
+    .wrapper2 input:focus, .wrapper2 select:focus {
+      background: #FFFDF2; }
+  .wrapper2 p.content-one {
+    display: none; }
+  .wrapper2 .activity-tags {
+    padding: 10px; }
+    .wrapper2 .activity-tags label.tags_input {
+      vertical-align: top;
+      top: 15px;
+      position: relative; }
+
 .activity {
-  background: #b0b0b0; }
+  border: 2px solid #cde69c;
+  border-radius: 2px;
+  padding: 2px;
+  cursor: pointer;
+  cursor: hand;
+  box-shadow: 0 1px 4px #cde69c; }
 
 header {
   background: url(images/bg-header.png);
-  height: 85px;
-  width: 100%; }
-  header div.wrapper {
-    padding: 11px 0; }
-    header div.wrapper img {
+  height: 119px;
+  width: 100%;
+  padding-top: 6px; }
+  header div.wrapper1 {
+    text-align: center;
+    height: 115px;
+    background: url(images/bg_header.png); }
+    header div.wrapper1 img {
+      width: 354px;
       position: relative;
-      top: 10px;
-      margin: 0 15px 0 0; }
-    header div.wrapper span {
+      top: 2px;
+      padding-left: 4%; }
+    header div.wrapper1 span {
+      font-style: italic;
+      font-weight: bold;
       font-size: 18px;
-      margin: 0 42px 0 0; }
-    header div.wrapper form {
+      padding-top: 5%;
+      padding-right: 17%;
+      float: right; }
+    header div.wrapper1 form {
       display: inline; }
-      header div.wrapper form input, header div.wrapper form select {
+      header div.wrapper1 form input, header div.wrapper1 form select {
         margin: 0 0 0 14px; }
 
 #content {
   margin-bottom: 15px;
-  min-height: 520px; }
+  min-height: 460px; }
   #content div.wrapper {
     margin: 38px auto; }
     #content div.wrapper img {
@@ -85,7 +123,7 @@ header {
 
 footer {
   background: url(images/bg-footer.png);
-  height: 251px;
+  height: 81px;
   font-size: 14px;
   clear: both; }
   footer div.wrapper {
@@ -150,10 +188,6 @@ div.block {
   div.block label {
     font-size: 17px;
     width: 130px; }
-  div.block label.tags_input {
-    vertical-align: top;
-    top: 15px;
-    position: relative; }
 
 .title {
   width: 20%;
@@ -184,7 +218,9 @@ div.block {
   .act .act-detail, .options .act-detail {
     margin-left: 10px;
     float: left;
-    width: 360px; }
+    width: 360px;
+    cursor: pointer;
+    cursor: hand; }
     .act .act-detail .act-name, .options .act-detail .act-name {
       font-size: 22px;
       font-weight: 150px;
@@ -201,23 +237,69 @@ div.block {
     .act .act-detail .act-cost, .options .act-detail .act-cost {
       font-family: Georgia,Serif; }
 
+.act:hover, .options:hover {
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.5); }
+
 .act-more {
   display: none; }
 
 .act:hover .act-more, .options:hover .act-more {
-  display: inline;
-  font-size: 25px;
-  font-weight: 90px;
+  display: block;
+  font-size: 12px;
   font-family: "Lucida Console";
   float: right;
+  color: #A4A4A4;
   margin-top: -1px; }
-  .act:hover .act-more .close_activity, .options:hover .act-more .close_activity {
+  .act:hover .act-more .close_activity, .options:hover .act-more .close_activity, .act:hover .act-more .options #close_options, .options .act:hover .act-more #close_options, .options:hover .act-more #close_options {
+    font-size: 20px;
+    font-weight: 90px;
     color: grey; }
+  .act:hover .act-more .close_activity:hover, .options:hover .act-more .close_activity:hover, .act:hover .act-more .options #close_options:hover, .options .act:hover .act-more #close_options:hover, .options:hover .act-more #close_options:hover {
+    color: red;
+    cursor: pointer;
+    cursor: hand; }
 
 .options {
-  display: none; }
-  .options .close_options {
-    float: right; }
+  display: none;
+  text-aligh: center;
+  padding: 10px; }
+  .options .option {
+    cursor: pointer;
+    cursor: hand;
+    display: block;
+    border: 1px solid #A4A4A4;
+    border-radius: 4px;
+    overflow: auto;
+    padding: 3px; }
+    .options .option img {
+      float: left;
+      width: 100px;
+      height: 70px; }
+    .options .option .name {
+      font-size: 22px;
+      font-weight: 150px;
+      font-family: Georgia,Serif;
+      margin-top: 4%;
+      margin-left: 10px;
+      float: left; }
+    .options .option .act-more {
+      display: none; }
+  .options .option:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); }
+  .options .option:hover .act-more {
+    display: block;
+    font-size: 16px;
+    font-weight: 50px;
+    color: #A4A4A4;
+    margin-top: 3.5%;
+    margin-right: 4px; }
+    .options .option:hover .act-more #select_option {
+      font-size: 25px;
+      font-weight: 90px; }
+    .options .option:hover .act-more #select_option:hover {
+      color: green;
+      cursor: pointer;
+      cursor: hand; }
 
 .commute_detail {
   margin-bottom: 10px;
@@ -241,3 +323,31 @@ div.block {
   width: 360px;
   height: 320px;
   margin: auto; }
+
+.detail_content {
+  margin: auto;
+  width: 910px; }
+
+.right {
+  width: 460px;
+  float: right; }
+
+.left {
+  width: 450px;
+  float: left; }
+
+.reviews {
+  width: 420px;
+  overflow: auto;
+  margin-bottom: 20px; }
+  .reviews .review img {
+    width: 20px;
+    height: 20px; }
+
+.user {
+  float: left;
+  width: 70px;
+  height: 220px; }
+  .user img {
+    width: 50px;
+    height: 50px; }

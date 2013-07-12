@@ -1,24 +1,31 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+	<title>Vagabond</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
   	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-	<script src="js/jquery.tagsinput.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/jquery.tagsinput.css" />
+  	<!--Multi select checkbox widget-->
+  	<script src="js/jquery.multiselect.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/jquery.multiselect.css" />
   	<script>
 	  $(function() {
 	    $( "#start_date" ).datepicker();
 	    $( "#end_date" ).datepicker();
+	    $("#activity-type").multiselect({
+   			header: false,
+   			selectedList: 4
+		});
 	  });
 	</script>
 </head>
 <body>
 	<header>
-		<div class="wrapper">
-			<img src="images/vagabonds_logo.png">
-			<span>A couple of memorable days in the SF Bay Area!!</span>
+		<div class="wrapper1">
+			
+				<a href="home.html"><img src="images/vagabonds_logo.png"></a> <span>Trip Planning Made Easy and Awesome!</span>
+			
 		</div>
 	</header>
 	<div id="content">
@@ -46,10 +53,12 @@
 			        </div>
 			        <div class="block">
 			        	<label for="activity-type">Activity Type: </label>
-				        <select name="activity-type" id = "activity-type">
-							<option value="outdoor">Outdoor</option>
-							<option value="city">City</option>
-							<option value="both" selected>Outdoor &amp; City</option>
+				        <select name="activity-type" id = "activity-type" multiple="multiple">
+							<option value="city" selected>City</option>
+							<option value="nature" >Nature</option>
+							<option value="adventure">Adventure</option>
+							<option value="sport">Sport</option>
+							<option value="nightlife">Nightlife</option>
 						</select>  
 			        </div>
 			        <div class="block">
@@ -61,7 +70,7 @@
 	</div>
 	<footer>
 		<div class="wrapper">
-			Vagabonds - Trip Planning Made Easy and Awesome
+			&copy; 2013 Vagabonds, Inc. 
 		</div>
 	</footer>
 </body>

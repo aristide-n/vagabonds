@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+	<title>Vagabond - Itinerary</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
   	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
@@ -44,11 +45,14 @@
 		// Pimp the DOM
 		var availableTags = [
 		      "Hiking",
-		      "Brunch",
-		      "Museums",
 		      "Biking",
 		      "Beach",
-		      "Concert"
+		      "Water Sport",
+		      "Amusement Park",
+		      "Concert",
+		      "Museums",
+		      "Theatre",
+		      "Historic Site"
 		    ];
 
 		$(function() {
@@ -68,7 +72,7 @@
 		      $('#tags').addTag($(evt.target).text());});
 
 		    //slider
-		    $('.flexslider').flexslider({
+		    $('.itineraryslider').itineraryslider({
 	          slideshow: false    
 	    	});
 
@@ -78,9 +82,14 @@
 	    		$('.options').toggle();
 	    	});
 
-	    	$('.close_options').click(function(){
+	    	$('#close_options').click(function(){
 	    		$('.options').toggle();
 	    		$('#commute1').toggle();
+	    	});
+
+	    	//show details
+	    	$('#1').click(function(){
+	    		window.location = "details.html";
 	    	});
 		});
 		//set form values
@@ -104,76 +113,59 @@
 </head>
 <body>
 	<header>
-		<div class="wrapper">
-			<a href="home.html"><img src="images/vagabonds_logo.png"></a>
-			<span>A couple of memorable days in the SF Bay Area!!</span>
+		<div class="wrapper1">
+			
+				<a href="home.html"><img src="images/vagabonds_logo.png"></a> <span>Trip Planning Made Easy and Awesome!</span>
+			
 		</div>
 	</header>
 	<div id="content">
-		<div class="wrapper">
+		<div class="wrapper2">
 			<form>
-	    		<label for="start_date">Start Date: </label>
-		        <input name="start_date" id="start_date" type="text">		    	
-		        <label for="end_date">End Date: </label>
-		        <input name="end_date" id="end_date" type="text">
-	        	<label for="budget">Budget: </label>
+				<div class="basic-input">
+	    		<label for="start_date">Start Date: </label>&nbsp&nbsp
+		        <input name="start_date" id="start_date" type="text">	&nbsp&nbsp&nbsp&nbsp	    	
+		        <label for="end_date">End Date: </label>&nbsp&nbsp
+		        <input name="end_date" id="end_date" type="text">&nbsp&nbsp&nbsp&nbsp
+	        	<label for="budget">Budget: </label>&nbsp&nbsp
 		        <select name="budget" id = "budget">
 					<option value="free">Free</option>
 					<option value="cheap">Cheap</option>
 					<option value="Moderate" selected>Moderate</option>
 					<option value="dont-care">Don't Care</option>
-				</select>  
+				</select> 
+				</div> 
 		        <div class="activity-tags">
-		        	<p class="expand-one">
+		        	<span class="expand-one">
 		        		<label for="tags" class="tags_input">Preferred Activities:&nbsp&nbsp</label>
-		        		<input name="tags" id="tags" value="Hiking, Brunch, Concert"/>
-		        	</p>
+		        		<input name="tags" id="tags" value="Hiking, Concert, Historic Site"/>
+		        	</span>
 				    <p class="content-one">
 				    	<span class = "activity">Hiking</span> |
-				    	<span class = "activity">Brunch</span> |
-				    	<span class = "activity">Museums</span> |
 				    	<span class = "activity">Biking</span> |
 				    	<span class = "activity">Beach</span> |
-				    	<span class = "activity">Concert</span>
+				    	<span class = "activity">Water Sport</span> |
+				    	<span class = "activity">Amusement Park</span> 
+				    	<span class = "activity">Museum</span> |
+				    	<span class = "activity">Concert</span> |
+				    	<span class = "activity">Theatre</span> |
+				    	<span class = "activity">Historic Site</span> 
 				    </p>
 		        </div>
 		        <input class="auto-update" type="submit" value="Make Itinerary">
 		    </form>
-			<!-- <div class="itinerary_panel right">
-			    <h1>Start a New Itinerary</h1>
-			    <form>
-			    	<div class="block">
-			    		<label for="start_date">Start Date: </label>
-				        <input name="start_date" id="start_date" type="text">
-			    	</div>
-			        <div class="block">
-				        <label for="end_date">End Date: </label>
-				        <input name="end_date" id="end_date" type="text">
-			        </div>
-			        <div class="block">
-			        	<label for="budget">Budget: </label>
-				        <input name="budget" id="budget" type="text">
-			        </div>
-			        <div class="block">
-			        	<label for="activity-type">Activity Type: </label>
-				        <input name="activity-type" id="activity-type" type="text">
-			        </div>
-			        <div class="block">
-			        	<input type="submit" value="Make Itinerary">
-			        </div>
-			    </form>
-			</div> -->
+			
 		</div>
 		<!-- On the left the schedule; on the right the map, location description, and save itinerary button -->
 			<div class="itinerary">
 				<div id="schedule" class="itinerary_panel left">
-				<div class="flexslider">
+				<div class="itineraryslider">
 	  				<ul class="slides">
 					    <li class="day">
 					    	<div class="title">DAY 1</div>
 					      	<div class="act">
 					      		<img src="images/muir-woods.jpg"/>
-					      		<div class = "act-detail">
+					      		<div class = "act-detail" id="1">
 					      			<div class="act-name">Hiking in Muir Woods 
 										<img src="images/star.jpg"/>
 					      				<img src="images/star.jpg"/>
@@ -183,15 +175,23 @@
 					      			<div class="act-cost">$</div>
 
 					      		</div>
-					      		<div class="act-more">  <a href="details.html">+</a>  <span class="close_activity">x</span></div>
+					      		<div class="act-more"> remove  <span class="close_activity">x</span></div>
 					      	</div>
 					      	 <!--More Options-->
 					      	<div class="options">
 					      		Other available activities at this time:
-					      		<div class="close_options">x</div> <br/>
-					      		<img src="images/twinpeaks.jpg"/> Hike to Twin Peaks Summit<br/><br/>
+					      		<div class="act-more"> close all <span id="close_options">x</span></div> <br/>
+					      		
+					      		
+					      		<div class="option">
+					      			<div class="act-more"> select <span id="select_option"> &radic; &nbsp</span></div>
+					      		<img src="images/twinpeaks.jpg"/> <div class="name">Hike to Twin Peaks Summit</div></div>
+					      		<div class="option">
+					      			<div class="act-more">  select <span id="select_option">&radic; &nbsp</span></div>
 					      		<img src="images/marinheadlands.jpg"/>
-					      		  Hike to Marin Headlands
+					      		  <div class="name">Hike to Marin Headlands</div>
+					      		  </div>
+					      		 
 					      	</div>
 					      	<!--Commute details-->
 	<!--id hack for now--> 	<div id="commute1" class="commute_detail">
@@ -210,11 +210,11 @@
 					      			<div class="act-time">12:00 pm - 2:00 pm</div>
 					      			<div class="act-cost">$</div>
 					      		</div>
-					      		<div class="act-more">  +  x</div>
+					      		<div class="act-more"> remove  <span class="close_activity">x</span></div>
 					      	</div>
 					      	<!--Commute details-->
 					      	<div class="commute_detail">
-					      		<img id="left_arrow" src="images/arrowicon1.png"/> <img src="images/mapicon.jpg"/> 25 minutes <img src="images/caricon.png"/> <img id="right_arrow" src="images/arrowicon2.png"/>
+					      		<div id="left_arrow"><img src="images/arrowicon1.png"/></div> <img src="images/mapicon.jpg"/> 25 minutes <img src="images/caricon.png"/> <div id="right_arrow"><img src="images/arrowicon2.png"/></div>
 					      	</div>
 					      	<div class="act">
 					      		<img src="images/goldengate.jpg"/>
@@ -227,7 +227,7 @@
 					      			<div class="act-time">2:00 pm - 4:00 pm</div>
 					      			<div class="act-cost">$</div>
 					      		</div>
-					      		<div class="act-more">  +  x</div>
+					      		<div class="act-more"> remove  <span class="close_activity">x</span></div>
 					      	</div>
 					      	<!--Commute details-->
 					      	<div class="commute_detail">
@@ -242,10 +242,10 @@
 					      				<img src="images/star.jpg"/>
 					      				<img src="images/star.jpg"/><img src="images/star.jpg"/><img src="images/star.jpg"/>
 					      			</div>
-					      			<div class="act-time">4:00 pm - 8:00 pm</div>
+					      			<div class="act-time">4:00 pm - 7:00 pm</div>
 					      			<div class="act-cost">$$</div>
 					      		</div>
-					      		<div class="act-more">  +  x</div>
+					      		<div class="act-more"> remove  <span class="close_activity">x</span></div>
 					      	</div>
 					      	<!--Commute details-->
 					      	<div class="commute_detail">
@@ -259,10 +259,10 @@
 					      				<img src="images/star.jpg"/>
 					      				<img src="images/star.jpg"/><img src="images/star.jpg"/><img src="images/star.jpg"/>
 					      			</div>
-					      			<div class="act-time">4:00 pm - 8:00 pm</div>
+					      			<div class="act-time">7:00 pm - 9:00 pm</div>
 					      			<div class="act-cost">$$</div>
 					      		</div>
-					      		<div class="act-more">  +  x</div>
+					      		<div class="act-more"> remove  <span class="close_activity">x</span></div>
 					      	</div>
 					    </li>
 					    <li class = "day">
@@ -278,7 +278,7 @@
 					      			<div class="act-time">8:00 am - 2:00 pm</div>
 					      			<div class="act-cost">$$</div>
 					      		</div>
-					      		<div class="act-more">  +  x</div>
+					      		<div class="act-more"> remove  <span class="close_activity">x</span></div>
 					      	</div>
 					      	<!--Commute details-->
 					      	<div class="commute_detail">
@@ -295,7 +295,7 @@
 					      			<div class="act-time">2:00 pm - 4:00 pm</div>
 					      			<div class="act-cost">$$</div>
 					      		</div>
-					      		<div class="act-more">  +  x</div>
+					      		<div class="act-more"> remove  <span class="close_activity">x</span></div>
 					      	</div>
 					      	<!--Commute details-->
 					      	<div class="commute_detail">
@@ -312,7 +312,7 @@
 					      			<div class="act-time">4:00 pm - 7:00 pm</div>
 					      			<div class="act-cost">Free</div>
 					      		</div>
-					      		<div class="act-more">  +  x</div>
+					      		<div class="act-more"> remove  <span class="close_activity">x</span></div>
 					      	</div>
 					      	<!--Commute details-->
 					      	<div class="commute_detail">
@@ -329,7 +329,7 @@
 					      			<div class="act-time">7:00 pm - 9:00 pm</div>
 					      			<div class="act-cost">$</div>
 					      		</div>
-					      		<div class="act-more">  +  x</div>
+					      		<div class="act-more"> remove  <span class="close_activity">x</span></div>
 					      	</div>
 					    </li>
 					 </ul>
@@ -353,7 +353,7 @@
 	</div>
 	<footer>
 		<div class="wrapper">
-			Vagabonds - Trip Planning Made Easy and Awesome
+			&copy; 2013 Vagabonds, Inc. 
 		</div>
 	</footer>
 </body>

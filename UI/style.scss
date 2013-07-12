@@ -40,13 +40,18 @@ input {
 	&:focus {
 		background: #FFFDF2;
 	}
+
 }
 
-select{
+select {
 	@extend input;
-	width: 178px;
-	
+	width: 178px;	
 }
+input[type="checkbox"] {
+	 height: 20px;
+	 width: 125px;
+	}
+
 
 input[type="submit"]{
 	height: 36px;
@@ -74,31 +79,69 @@ a {
 .wrapper {
 	width: $content-width;
 	margin: auto;
+	
+}
+
+.wrapper2 {
+	text-align: center;
+	padding: 8px;
+	input {
+	width: 100px;
+	height: 28px;
+	border: 1px solid $border-color;
+	padding: 0 10px;
+	outline: none;
+	font-size: 14px;
+	&:focus {
+		background: #FFFDF2;
+	}
+	}
 	p.content-one {
 		    display:none;
+	}
+	.activity-tags{
+		padding: 10px;
+		label.tags_input {
+			vertical-align: top; 
+			top: 15px; 
+			position: relative;
+		}
 	}
 }
 
 .activity {
-	background: #B0B0B0 
+	border: 2px solid #cde69c;
+	border-radius: 2px;
+	padding: 2px; 
+	cursor: pointer; cursor: hand;
+	box-shadow: 0 1px 4px #cde69c;
 }
 
 
 
 header {
 	background: url(images/bg-header.png);
-	height: 85px;
+	height: 119px;
 	width: 100%;
-	div.wrapper {
-		padding: 11px 0;
-		img {
+	padding-top: 6px;
+	div.wrapper1 {
+		text-align: center;
+		height: 115px;
+		background: url(images/bg_header.png);
+
+		img {	
+			width: 354px;
 			position: relative;
-			top: 10px;
-			margin: 0 15px 0 0;
+			top: 2px;
+			padding-left: 4%;
 		}
 		span {
+			font-style:italic;
+			font-weight:bold;
 			font-size: 18px;
-			margin: 0 42px 0 0; 
+			padding-top: 5%;
+			padding-right: 17%;
+			float: right; 
 		}
 		form {
 			display: inline;
@@ -113,7 +156,7 @@ header {
 #content {
 	margin-bottom: 15px;
 	// min-height: 560px;
-	min-height: 520px;
+	min-height: 460px;
 	div.wrapper {
 		margin: 38px auto;
 		img {
@@ -130,7 +173,7 @@ header {
 
 footer {
 	background: url(images/bg-footer.png);
-	height: 251px;
+	height: 81px;
 	font-size: 14px;
 	clear: both;
 	div.wrapper {
@@ -213,16 +256,12 @@ div.home_panel {
 
 div.block {
 	float: right;
+	
 	label { 
-		font-size: 17px;
-		width: 130px; 
-	}	
+		font-size: 17px;	
+		width: 130px;
 
-	label.tags_input {
-		vertical-align: top; 
-		top: 15px; 
-		position: relative
-	}
+	}	
 
 }
 
@@ -261,6 +300,7 @@ div.block {
 		margin-left: 10px;
 		float: left;
 		width: 360px;
+		cursor: pointer; cursor: hand;
 
 		.act-name {
 			font-size: 22px;
@@ -287,7 +327,12 @@ div.block {
 	}
 
 
+
+
 }
+.act:hover {
+		box-shadow: 0 1px 15px rgba(0,0,0,.5);
+	}
 
 
 .act-more{
@@ -296,24 +341,80 @@ div.block {
 
 
 .act:hover .act-more {
-	display: inline;
-	font-size: 25px;
-	font-weight:90px;
+	display: block;
+	font-size: 12px;
 	font-family:"Lucida Console";
 	float: right;
+	color:#A4A4A4;
 	margin-top: -1px;
 	
 	.close_activity {
+		font-size: 20px;
+		font-weight:90px;
 		color: grey;
+	}
+	.close_activity:hover {
+		color: red;
+		cursor: pointer; cursor: hand;
 	}
 }
 
 .options {
 	@extend .act;
 	display: none;
-	.close_options{
-		float: right;
+	text-aligh:center;
+	#close_options{
+		@extend .close_activity;
 	}
+	padding: 10px;
+	.option {
+		cursor: pointer; cursor: hand;
+		display: block;
+		border: 1px solid #A4A4A4;
+		border-radius: 4px;
+		overflow:auto;
+		padding: 3px;
+
+		img {
+			float: left;
+			width:100px;
+			height: 70px;
+		}
+		.name{
+			font-size: 22px;
+			font-weight:150px;
+			font-family:Georgia,Serif;
+			margin-top: 4%;
+			margin-left: 10px;
+			float: left;
+		}
+		.act-more{
+			display:none;
+		}
+		
+	}
+	.option:hover{
+		box-shadow: 0 10px 25px rgba(0,0.4,0,.2);
+	}
+		
+	.option:hover .act-more{
+		display: block;	
+		font-size: 16px;
+		font-weight:50px;
+		color: #A4A4A4;
+		margin-top: 3.5%;
+		margin-right: 4px;
+		#select_option{
+			font-size: 25px;
+			font-weight:90px;
+		}
+		#select_option:hover {
+			color: green;
+			cursor: pointer; cursor: hand;
+		}
+	}
+
+	
 }
 
 .commute_detail {
