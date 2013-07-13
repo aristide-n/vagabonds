@@ -1,0 +1,19 @@
+# Add account credentials and API keys here.
+# See http://railsapps.github.io/rails-environment-variables.html
+# This file should be listed in .gitignore to keep your settings secret!
+# Each entry sets a local environment variable and overrides ENV variables in the Unix shell.
+# For example, setting:
+# GMAIL_USERNAME: Your_Gmail_Username
+# makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
+# Add application configuration variables here, as shown below.
+#
+PLACES_API_KEY: the_key
+
+EXCEPTION_NOTIFIER_SENDER: "sender@domain .com"
+EXCEPTION_NOTIFIER_RECIPIENTS: "recipient1@domain1.com, recipient2@domain2.com"
+SMTP_SERVER: "googleappsdomain.com"
+SMTP_SERVER_USERNAME: "username@googleappsdomain.com"
+SMTP_SERVER_PASSWORD: "password"
+
+SEEDS_ENV: development
+#SEEDS_ENV: production

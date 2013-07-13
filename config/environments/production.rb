@@ -71,12 +71,6 @@ VAGABONDS::Application.configure do
                         :sender_address => ENV['EXCEPTION_NOTIFIER_SENDER'],
                         :exception_recipients => ENV['EXCEPTION_NOTIFIER_RECIPIENTS']
 
-  config.action_mailer.delivery_method = :sendmail
-  # Defaults to:
-  # config.action_mailer.sendmail_settings = {
-  #   :location => '/usr/sbin/sendmail',
-  #   :arguments => '-i -t'
-  # }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
 
@@ -84,7 +78,7 @@ VAGABONDS::Application.configure do
   config.action_mailer.smtp_settings = {
       :address              => "smtp.gmail.com",
       :port                 => 587,
-      :domain               => 'west.cmu.edu',
+      :domain               => ENV['SMTP_SERVER'],
       :user_name            => ENV['SMTP_SERVER_USERNAME'],
       :password             => ENV['SMTP_SERVER_PASSWORD'],
       :authentication       => 'plain',
