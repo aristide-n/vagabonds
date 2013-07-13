@@ -7,7 +7,7 @@ require 'google/api_client'
 
 # Project credentials
 # ------------------------
-DATA_OBJECT = "activitybucket/activity_types_category.txt" # This is the {bucket}/{object} name you are using for the language file.
+DATA_OBJECT = "activitybucket/activity_prediction_data.txt" # This is the {bucket}/{object} name you are using for the language file.
 CLIENT_EMAIL = "248144510891@developer.gserviceaccount.com" # Email of service account
 KEYFILE = '../96534c5b34584996aa30632c51636b25fd64b494-privatekey.p12' # Filename of the private key
 PASSPHRASE = 'notasecret' # Passphrase for private key

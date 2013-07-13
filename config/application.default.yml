@@ -7,7 +7,7 @@
 # makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
 # Add application configuration variables here, as shown below.
 #
-PLACES_API_KEY: the_key
+PLACES_API_KEY: "AIzaSyDAHnV05hq2SYN73kpvmMdJ8uWmXFzWWTU"
 
 EXCEPTION_NOTIFIER_SENDER: "sender@domain .com"
 EXCEPTION_NOTIFIER_RECIPIENTS: "recipient1@domain1.com, recipient2@domain2.com"
