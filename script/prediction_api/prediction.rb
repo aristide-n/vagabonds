@@ -7,7 +7,7 @@ require 'google/api_client'
 
 # Project credentials
 # ------------------------
-DATA_OBJECT = "activitybucket/activity_types_category.txt" # This is the {bucket}/{object} name you are using for the language file.
+DATA_OBJECT = "activitybucket/activity_prediction_data.txt" # This is the {bucket}/{object} name you are using for the language file.
 CLIENT_EMAIL = "248144510891@developer.gserviceaccount.com" # Email of service account
 KEYFILE = '../96534c5b34584996aa30632c51636b25fd64b494-privatekey.p12' # Filename of the private key
 PASSPHRASE = 'notasecret' # Passphrase for private key
@@ -36,7 +36,7 @@ end
 
 def train
   training = @prediction.trainedmodels.insert.request_schema.new
-  training.id = 'category_prediction_id'
+  training.id = 'activity_category_id'
   training.storage_data_location = DATA_OBJECT
   result = @client.execute(
       :api_method => @prediction.trainedmodels.insert,
@@ -50,22 +50,22 @@ end
 def check_status
   result = @client.execute(
       :api_method => @prediction.trainedmodels.get,
-      :parameters => {'id' => 'category_prediction_id'}
+      :parameters => {'id' => 'activity_category_id'}
   )
 
   return assemble_json_body(result)
 end
 
-def predict(inpu)
-  input = @prediction.trainedmodels.predict.request_schema.new
-  input.input = {}
-  input.input.csv_instance =  inpu
+def predict(input)
+  body = @prediction.trainedmodels.predict.request_schema.new
+  body.input = {}
+  body.input.csv_instance =  input
   result = @client.execute(
       :api_method => @prediction.trainedmodels.predict,
-      :parameters => {'id' => 'category_prediction_id'},
+      :parameters => {'id' => 'activity_category_id'},
       #:parameters => {'id' => 'act_type_id'},
       :headers => {'Content-Type' => 'application/json'},
-      :body_object => input
+      :body_object => body
   )
 
   return assemble_json_body(result)

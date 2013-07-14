@@ -9,49 +9,16 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-if ENV['SEEDS_ENV'] == "development"
-
-  puts "Seeding development database"
-
-  # Places API wrapper
-  require 'google_places'
-
-  # Handles document parsing for getting place text from google plus
-  require 'nokogiri'
-
-  # Handles document access/fetching
-  require 'open-uri'
-
-
-  client = GooglePlaces::Client.new(ENV['PLACES_API_KEY'])
-
-  # This is the array of places
-  spots = []
-
-  # Set up the types of places to look for
-  types = %w(amusement_park aquarium art_gallery bakery bank bar beauty_salon bicycle_store book_store bowling_alley cafe campground casino cemetery church city_hall clothing_store convenience_store courthouse department_store electrician electronics_store establishment finance food furniture_store grocery_or_supermarket gym hair_care hardware_store health hindu_temple home_goods_store jewelry_store local_government_office lodging meal_delivery meal_takeaway mosque movie_theater museum night_club park pet_store place_of_worship restaurant school shoe_store shopping_mall spa stadium store synagogue university zoo colloquial_area locality natural_feature neighborhood political point_of_interest)
-
-  # Set up the list of (lat, lng) points to search around
-  points = [{lat: 37.783197, lng: -122.393044}, {lat: 37.772886, lng: -122.419496}, {lat: 37.772886, lng: -122.419496}, {lat: 37.800968, lng:-122.412785}, {lat: 37.800019, lng: -122.441967}, {lat:37.790252 , lng:-122.434586}, {lat:37.781569 , lng: -122.433556}, {lat: 37.760944, lng:-122.433727}, {lat: 37.756873, lng:-122.414158}, {lat:37.748322 , lng:-122.412613}, {lat: 37.741535, lng:-122.411583}]
-
-  # Load a small set of places by default, if the "more" argument is set, get more places around the points in the list
-  if ENV["more"]
-    points.each do |point|
-      # Get a list of up to 200 places  in a 1000 m radius around the points (radar search)
-      spots += client.spots_radar(point[:lat], point[:lng], {:types => types, :radius => 50000})
-    end
-  else
-    # Get a list of up to 20 places in a 1000 m radius around the point (Single page nearby search)
-    spots += client.spots(37.772886,-122.419496, {:types => types})
-  end
-
+def fetch_spots_details(spots)
   spots.each_with_index do |spot, index|
 
     # Get the details of a spot
-    new_spot = client.spot(spot.reference)
+    new_spot = @client.spot(spot.reference)
 
     if new_spot
       begin
+
+        # TODO: Refactor to create only when the place has text (review_summary, maybe Zagat review)
         # Create a Place instance
         place = Place.create!(
             :permanent_id_num =>new_spot.id,
@@ -171,6 +138,49 @@ if ENV['SEEDS_ENV'] == "development"
 
     end
 
+  end
+end
+
+
+if ENV['SEEDS_ENV'] == "development"
+
+  puts "Seeding development database"
+
+  # Places API wrapper
+  require 'google_places'
+
+  # Handles document parsing for getting place text from google plus
+  require 'nokogiri'
+
+  # Handles document access/fetching
+  require 'open-uri'
+
+
+  @client = GooglePlaces::Client.new(ENV['PLACES_API_KEY'])
+
+  # This is the array of places
+  spots = []
+
+  # Set up the types of places to look for
+  types = %w(amusement_park aquarium art_gallery bakery bank bar beauty_salon bicycle_store book_store bowling_alley cafe campground casino cemetery church city_hall clothing_store convenience_store courthouse department_store electrician electronics_store establishment finance food furniture_store grocery_or_supermarket gym hair_care hardware_store health hindu_temple home_goods_store jewelry_store local_government_office lodging meal_delivery meal_takeaway mosque movie_theater museum night_club park pet_store place_of_worship restaurant school shoe_store shopping_mall spa stadium store synagogue university zoo colloquial_area locality natural_feature neighborhood political point_of_interest)
+
+  # Set up the list of (lat, lng) points to search around
+  #points = [{lat: 37.783197, lng: -122.393044}, {lat: 37.772886, lng: -122.419496}, {lat: 37.772886, lng: -122.419496}, {lat: 37.800968, lng:-122.412785}, {lat: 37.800019, lng: -122.441967}, {lat:37.790252 , lng:-122.434586}, {lat:37.781569 , lng: -122.433556}, {lat: 37.760944, lng:-122.433727}, {lat: 37.756873, lng:-122.414158}, {lat:37.748322 , lng:-122.412613}, {lat: 37.741535, lng:-122.411583}]
+  points = [{lng: -122.53451260272413, lat: 37.83009964270173}, {lng: -122.53451260272413, lat: 37.83009964270173}, {lng: -122.58120449725538, lat: 37.862632580317324}, {lng: -122.63201626483351, lat: 37.89406745830481}, {lng: -122.70686062518507, lat: 37.917905644507314}, {lng: -122.75904568377882, lat: 37.95689692521129}, {lng: -122.80505093280226, lat: 37.992079618396346}, {lng: -122.86822231952101, lat: 38.02237733717206}, {lng: -122.93620022479445, lat: 38.02508188174781}, {lng: -122.99731167498976, lat: 38.02616367162648}, {lng: -122.9609194630757, lat: 38.06942216765465}, {lng: -122.91422756854445, lat: 38.11157458638878}, {lng: -122.93414028827101, lat: 38.16396098422504}, {lng: -122.94787319842726, lat: 38.216849248308776}, {lng: -122.98151882831007, lat: 38.26592538454074}, {lng: -123.0323305958882, lat: 38.29718739137148}, {lng: -122.85860928241163, lat: 38.34890181562565}, {lng: -122.92384060565382, lat: 38.347286298352884}, {lng: -122.9938784474507, lat: 38.347824808114524}, {lng: -123.06734951678663, lat: 38.34944031337515}]
+
+
+  # Load a small set of places by default, if the "more" argument is set, get more places around the points in the list
+  if ENV["more"]
+    points.each_with_index do |point, index|
+      puts "############### POINT #{index}"
+      # Get a list of up to 200 places  in a 5000 m radius around the points (radar search)
+      spots = @client.spots_radar(point[:lat], point[:lng], {:types => types, :radius => 5000})
+      fetch_spots_details(spots)
+    end
+  else
+    # Get a list of up to 20 places in a 1000 m radius around the point (Single page nearby search)
+    spots += client.spots(37.772886,-122.419496, {:types => types})
+    fetch_spots_details(spots)
   end
 
 
