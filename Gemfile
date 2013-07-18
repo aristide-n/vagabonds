@@ -50,3 +50,4 @@ gem "google_places", :git => 'git://github.com/Aristide1o/google_places.git'
 gem "nokogiri"
 gem 'google-api-client', '>= 0.5'
 gem 'exception_notification', :require => 'exception_notifier'
+gem 'simple_form'

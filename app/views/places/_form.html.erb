@@ -1,0 +1,7 @@
+<%= simple_form_for(@place) do |f| %>
+  <%= f.input :name, input_html: { class: 'simple_form' } %>
+  <%= f.input :review_summary, input_html: { class: 'simple_form' } %>
+  <%= f.association :category, input_html: { class: 'simple_form' } %>
+  <%= f.input :duration, input_html: { class: 'simple_form' } %>
+  <%= f.button :submit, input_html: { class: 'simple_form' } %>
+<% end %>
