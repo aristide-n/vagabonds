@@ -1,5 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-
+<table>
+  <tr>
+    <th>No.</th>
+    <th>Name</th>
+    <th>Cat</th>
+    <th>Dur</th>
+    <th>Review_Summary</th>
+  </tr>
+  <tr>
+    <td><%= index %>. </td>
+    <td><%= place.name %></td>
+    <td><%= place.category.name %></td>
+    <td><%= place.duration %></td>
+    <td><%= place.review_summary %></td>
+  </tr>
+</table>
 <%= link_to 'Edit', edit_place_path(@place) %> |
 <%= link_to 'Back', places_path %>
