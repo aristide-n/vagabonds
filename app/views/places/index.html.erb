@@ -7,8 +7,9 @@
     <th></th>
   </tr>
 
-<% @places.each do |place| %>
+<% @places.each_with_index do |place, index| %>
   <tr>
+    <td><%= index %>. </td>
     <td><%= place.name %></td>
     <td><%= place.review_summary %></td>
     <td><%= place.category.name %></td>
