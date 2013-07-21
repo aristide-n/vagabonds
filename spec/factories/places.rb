@@ -174,7 +174,7 @@ FactoryGirl.define do
     name "The Palace of Fine Arts"
     price_level 1
     rating 5
-    duration 2.5
+    duration 2
     category_id 3
   end
 
@@ -228,7 +228,7 @@ FactoryGirl.define do
     name "California Academy of Sciences"
     price_level 1
     rating 5
-    duration 2.5
+    duration 2
     category_id 3
   end
 
@@ -257,6 +257,24 @@ FactoryGirl.define do
     rating 4
     duration 4
     category_id 6
+  end
+
+  factory :coit_tower, class: Place do
+    permanent_id_num 30
+    name "Coit Tower"
+    price_level 1
+    rating 1
+    duration 2
+    category_id 3
+  end
+
+  factory :asian_museum, class: Place do
+    permanent_id_num 31
+    name "Asian Art Museum"
+    price_level 1
+    rating 5
+    duration 3
+    category_id 3
   end
 
 end

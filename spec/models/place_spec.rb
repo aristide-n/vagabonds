@@ -40,12 +40,14 @@ describe Place do
     @tomales_bay = FactoryGirl.create(:tomales_bay)
     @great_america =  FactoryGirl.create(:great_america)
     @oxygen_paragliding = FactoryGirl.create(:oxygen_paragliding)
+    @coit_tower =  FactoryGirl.create(:coit_tower)
+    @asian_museum = FactoryGirl.create(:asian_museum)
   end
 
   context "recommend places" do
 
     it "should give only places with matching categories" do
-        params = {"budget" => 5, "categories" => ["Nightlife", "City", "Adventure"] }
+        params = {"start_date" => "07/06/2013","end_date" => "07/07/2013", "budget" => 5, "categories" => ["Nightlife", "City", "Nature"] }
         Place.recommendations(params).should_not include(@muir_woods)
     end
 

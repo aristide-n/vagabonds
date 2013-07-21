@@ -1,30 +1,30 @@
 FactoryGirl.define do
   factory :nature, class: Category do
     id 1
-    name "Nature"
+    name "nature"
   end
   factory :adventure, class: Category do
     id 2
-    name "Adventure"
+    name "adventure"
   end
   factory :city, class: Category do
     id 3
-    name "City"
+    name "city"
   end
   factory :food, class: Category do
     id 4
-    name "Food"
+    name "food"
   end
   factory :nightlife, class: Category do
     id 5
-    name "Nightlife"
+    name "nightlife"
   end
   factory :sports, class: Category do
     id 6
-    name "Sports"
+    name "sports"
   end
   factory :junk, class: Category do
     id 7
-    name "Junk"
+    name "junk"
   end
 end
