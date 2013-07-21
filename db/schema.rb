@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130711052536) do
+ActiveRecord::Schema.define(:version => 20130711232013) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -57,13 +57,13 @@ ActiveRecord::Schema.define(:version => 20130711052536) do
     t.integer  "price_level"
     t.string   "permanent_id_num"
     t.text     "reference"
-    t.string   "address"
+    t.text     "address"
     t.decimal  "address_lat"
     t.decimal  "address_lng"
     t.string   "phone_number"
     t.decimal  "rating"
     t.string   "url"
-    t.string   "website"
+    t.text     "website"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.text     "review_summary"
