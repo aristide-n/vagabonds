@@ -12,54 +12,66 @@
 
 <div class="detail_content">
 
-  <h2>Muir Woods National Monument</h2>
+  <h2><%= @place.name%></h2>
 
   <div class="left">
+    <p>Rating: <% rating = @place.rating.to_i %>
+      <% if rating != nil %>
+          <% rating.times do %>
+             <%= image_tag"star.jpg", :class => "rating_star"%>
+          <% end %>
+      <% end %>
+    </p>
+    <p><%= @place.review_summary %></p>
 
-    <p>Muir Woods National Monument is a unit of the National Park Service on the Pacific coast of southwestern Marin County, California, 12 miles north of San Francisco and part of the Golden Gate National Recreation Area.</p>
-
-    <p>Entry Fee: $ 7.00</p>
-    <p>Address: Mill Valley, CA 94941</p>
-    <p>Phone: (415) 388-2596 </p>
-    <p>Management: U.S. National Park Service </p>
-    <p>Website: <a href="http://www.nps.gov/muwo/index.htm">http://www.nps.gov/muwo/index.htm</a>
+    <p>Price Level: <%= @place.price_level %></p>
+    <p>Address: <%=@place.address%></p>
+    <p>Phone: <%= @place.phone_number%> </p>
+    <p>Website: <%= @place.website %> </p>
 
 
-    <div class= "reviews">
+    <div class= "user_reviews">
       <h3> User Reviews </h3>
-      <div class="user">
-        <%= image_tag "user.jpg"%><br/>
-        Sam J.
-      </div>
+      <% @reviews = Review.where("place_id = ?", @place.id)%>
+      <% @reviews.each do |review| %>
       <div class="review">
-        <%= image_tag"star.jpg"%>
-        <%= image_tag"star.jpg"%>
-        <%= image_tag"star.jpg"%>
-        <%= image_tag"star.jpg"%>
-        <%= image_tag"emptyStar.jpg"%><br/>
-        Just Beautiful!<br/><br/>
-
-        A great way to experience Muir Woods is to take the Ocean View Trail, The Lost Trail, and the Fern Creek Trail which completes the loop back to the main entrance.  <br/><br/>
-
-        The Ocean View Trail is a standard hike up the mountain.  It's pretty draining on the body but you'll be in awe once you see that you end up as high as the redwood tree tops.<br/><br/>
-        <a href="#">More reviews ...</a>
+        <div class="user">
+            <%= image_tag "user.jpg"%><br/>
+            <%= review.author%>
+        </div>
+        <div class="review_text">
+            <% rating = review.rating.to_i %>
+            <% if rating != nil %>
+                <% rating.times do %>
+                    <%= image_tag"star.jpg", :class => "rating_star"%>
+                <% end %>
+            <% end %>
+          <br/>
+        <%= review.text%>
+        </div>
       </div>
-
+      <% end %>
+      <a href=<%= @place.url%>>More reviews ...</a>
     </div>
   </div>
   <div class="right">
 
     <div class="flexslider">
       <ul class="slides">
-        <li>
-          <%= image_tag"muir1.jpg" %>
-        </li>
-        <li>
-          <%= image_tag"muir2.jpg" %>
-        </li>
-        <li>
-          <%= image_tag"muir3.jpg" %>
-        </li>
+        <% @photos = Photo.where("place_id = ?", @place.id)%>
+        <% if @photos.empty? %>
+          <li>
+            <%= image_tag"no_photo_icon.jpg" %>
+          </li>
+        <% else %>
+            <% @photos.each do |photo| %>
+                <% url =  photo.url  %>
+                <li>
+                  <%= image_tag(url) %>
+                </li>
+            <% end %>
+
+        <% end %>
       </ul>
     </div>
 

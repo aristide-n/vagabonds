@@ -3,6 +3,10 @@
       $(function() {
           $( "#start_date" ).datepicker();
           $( "#end_date" ).datepicker();
+          $("#activity-type").multiselect({
+              header: false,
+              selectedList: 4
+          });
       });
   </script>
 
@@ -26,16 +30,17 @@
         </div>
         <div class="block">
           <%= label_tag(:budget, "Budget:") %>
-          <%= select_tag(:budget, options_for_select([["Free", 0], ["Cheap", 1], ["Moderate",2], ["Don't Care", 3]], 2)) %>
+          <%= select_tag(:budget, options_for_select([["Free", 0], ["Cheap ($)", 1], ["Moderate ($$)",2], ["Don't Care", 3]], 2)) %>
         </div>
         <div class="block">
           <%= label_tag(:categories, "Activity Type:") %>
-
-          <%= check_box_tag "categories[]", "City"%> City
-          <%= check_box_tag "categories[]", "Nature"%> Nature <br/>
-          <%= check_box_tag "categories[]", "Adventure"%> Adventure
-          <%= check_box_tag "categories[]", "Sports"%> Sports
-          <%= check_box_tag "categories[]", "Nightlife"%>  Nightlife
+          <select name="categories[]" id = "activity-type" multiple="multiple">
+            <option value="city" selected>City</option>
+            <option value="nature" >Nature</option>
+            <option value="adventure">Adventure</option>
+            <option value="sport">Sport</option>
+            <option value="nightlife">Nightlife</option>
+          </select>
 
         </div>
         <div class="block">

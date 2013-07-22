@@ -107,8 +107,7 @@ class Place < ActiveRecord::Base
       week_days[0] = Date.strptime(params["start_date"], "%m/%d/%Y").wday
       week_days[1] = Date.strptime(params["end_date"], "%m/%d/%Y").wday
       final_activity_list = scheduler(recommended_places, week_days)
-     # pp final_activity_list
-      return recommended_places
+      return final_activity_list
   end
 
   def self.scheduler(top_places, week_days)
@@ -286,7 +285,7 @@ class Place < ActiveRecord::Base
 
   def self.collapse_repeated_slots(scheduled_places)
 
-    pp scheduled_places[1]
+    #pp scheduled_places[1]
     #pp scheduled_places[0].length
     day = 0
     scheduled_places_list = {}

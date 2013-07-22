@@ -1,0 +1,8 @@
+<h1>Recommended Places</h1>
+
+<% @recommended_places[0].each do |place| %>
+    <p><%= link_to place.name, place %></p>
+<% end %>
+<% @recommended_places[1].each do |place| %>
+    <p><%= link_to place.name, place %></p>
+<% end %>
