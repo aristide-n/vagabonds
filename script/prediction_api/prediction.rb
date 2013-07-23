@@ -1,9 +1,6 @@
 #!/usr/bin/env ruby
 
 require 'google/api_client'
-#require 'sinatra'
-
-#enable :sessions
 
 # Project credentials
 # ------------------------
