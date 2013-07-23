@@ -57,7 +57,7 @@ VAGABONDS::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
 
   #resources :places
-  #resources :photos
+  resources :photos
 
   match '/' => 'welcome#index', :as => :root
   match '/places' => 'places#index'
