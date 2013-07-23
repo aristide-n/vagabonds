@@ -63,4 +63,6 @@ VAGABONDS::Application.routes.draw do
   match '/places/:id' => 'places#show', :as => :place
   match '/itinerary' => 'places#itinerary'
   match '/details' => 'places#show'
+
+  resources :photos
 end

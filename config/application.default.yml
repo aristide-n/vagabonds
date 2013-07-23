@@ -7,13 +7,22 @@
 # makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
 # Add application configuration variables here, as shown below.
 #
-PLACES_API_KEY: "AIzaSyDAHnV05hq2SYN73kpvmMdJ8uWmXFzWWTU"
 
-EXCEPTION_NOTIFIER_SENDER: "sender@domain .com"
-EXCEPTION_NOTIFIER_RECIPIENTS: "recipient1@domain1.com, recipient2@domain2.com"
-SMTP_SERVER: "googleappsdomain.com"
-SMTP_SERVER_USERNAME: "username@googleappsdomain.com"
-SMTP_SERVER_PASSWORD: "password"
+# Google places API
+PLACES_API_KEY: AIzaSyDAHnV05hq2SYN73kpvmMdJ8uWmXFzWWTU
 
+# Exception notifier gem
+EXCEPTION_NOTIFIER_SENDER: sender@domain .com
+EXCEPTION_NOTIFIER_RECIPIENTS: recipient1@domain1.com, recipient2@domain2.com
+SMTP_SERVER: googleappsdomain.com
+SMTP_SERVER_USERNAME: username@googleappsdomain.com
+SMTP_SERVER_PASSWORD: password
+
+# db/seeds.rb
 SEEDS_ENV: development
 #SEEDS_ENV: production
+
+# Paperclip attachments
+AWS_BUCKET: bucket name
+AWS_ACCESS_KEY_ID: key id
+AWS_SECRET_ACCESS_KEY: key
