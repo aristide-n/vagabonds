@@ -14,33 +14,35 @@ class Place < ActiveRecord::Base
   end
 
   def self.recommendations(params)
+
       @time_ratio = {food: 0.143, nightlife: 0, nature: 0, adventure: 0, sports: 0, city: 0}
-      preferred_categories = params["categories"] << "Food"
+      preferred_categories = params["categories"] << "food"
 
       #setting time ratio based on selected categories by user
       total_categories = preferred_categories.length - 1
       base_ratio = 0.857   #24/28
 
-      if preferred_categories.include? "Nightlife"
+      if preferred_categories.include? "nightlife"
          @time_ratio[:nightlife] = 0.143 #4/28
          base_ratio = 0.714   #20/28
          total_categories= total_categories - 1
       end
-      if preferred_categories.include? "Nature"
+      if preferred_categories.include? "nature"
         @time_ratio[:nature] = base_ratio / total_categories
       end
-      if preferred_categories.include? "Adventure"
+      if preferred_categories.include? "adventure"
         @time_ratio[:adventure] = base_ratio / total_categories
       end
-      if preferred_categories.include? "Sports"
+      if preferred_categories.include? "sports"
         @time_ratio[:sports] = base_ratio / total_categories
       end
-      if preferred_categories.include? "City"
+      if preferred_categories.include? "city"
         @time_ratio[:city] = base_ratio / total_categories
       end
 
-      preferred_categories.map!{|c| c.downcase}
-      #pp preferred_categories
+     # preferred_categories.map!{|c| c.downcase}
+
+
       # Query db for matching categories and budget
       places_inCategories = Place.joins(:category).where(categories: {name: preferred_categories})
       places_inBudget = places_inCategories.where("price_level <= ?", params["budget"]).order("rating DESC")
@@ -133,7 +135,7 @@ class Place < ActiveRecord::Base
     end
 
     scheduled_places = Array.new(@num_of_days) { Array.new(max_hrs_for_trip/2) { } }
-    pp max_hrs_for_trip/2
+
     @time_ratio.each { |category, hours| category_max_hours[category.to_s] = hours * max_hrs_for_trip }
 
     days = @num_of_days - 1
