@@ -14,8 +14,8 @@ puts "API client configured"
 
 training_status = check_status
 
-if (training_status["status"] == "error")
-  if (training_status["response"]["error"]["message"] == "No Model found. Model must first be trained.")
+if training_status["status"] == "error"
+  if training_status["response"]["error"]["message"] == "No Model found. Model must first be trained."
 
     train
     puts "Model training started"
