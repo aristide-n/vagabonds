@@ -65,7 +65,7 @@
           </li>
         <% else %>
             <% @photos.each do |photo| %>
-                <% url =  photo.url  %>
+                <% url =  photo.uploaded.url  %>
                 <li>
                   <%= image_tag(url) %>
                 </li>

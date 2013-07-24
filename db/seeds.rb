@@ -192,7 +192,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create!(
-      :permanent_id_num => "1",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Alcatraz",
       :address => "Alcatraz Cruises, LLC\nPier 33, Alcatraz Landing\nSan Francisco, California 94111",
       :phone_number => "415-981-7625",
@@ -229,13 +229,11 @@ elsif ENV['SEEDS_ENV'] == "production"
     )
   end
 
-  #place.photos.create()
-
   #-------------------------------------------
 
   # Create a place
   place = Place.create!(
-      :permanent_id_num => "2",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Pier 39",
       :address => "PIER 39\nBeach Street & The Embarcadero\nSan Francisco, CA 94133",
       :phone_number => "",
@@ -272,13 +270,11 @@ elsif ENV['SEEDS_ENV'] == "production"
     )
   end
 
-  #place.photos.create()
-
   #-------------------------------------------
 
   # Create a place
   place = Place.create!(
-      :permanent_id_num => "3",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Twin Peaks",
       :address => "Twin Peaks\nSan Francisco, CA 94131",
       :phone_number => "",
@@ -315,13 +311,11 @@ elsif ENV['SEEDS_ENV'] == "production"
     )
   end
 
-  #place.photos.create()
-
   #-------------------------------------------
 
   # Create a place
   place = Place.create!(
-      :permanent_id_num => "4",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Golden Gate Bridge",
       :address => "Golden Gate Bridge\nSan Francisco, CA 94129-0601",
       :phone_number => "415-921-5858",
@@ -358,13 +352,11 @@ elsif ENV['SEEDS_ENV'] == "production"
     )
   end
 
-  #place.photos.create()
-
   #-------------------------------------------
 
   # Create a place
   place = Place.create!(
-      :permanent_id_num => "5",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Golden Gate Park",
       :address => "501 Stanyan St\nSan Francisco, CA 94117",
       :phone_number => "415-831-2700",
@@ -401,13 +393,11 @@ elsif ENV['SEEDS_ENV'] == "production"
     )
   end
 
-  #place.photos.create()
-
   #-------------------------------------------
 
   # Create a place
   place = Place.create!(
-      :permanent_id_num => "6",
+      :permanent_id_num => SecureRandom.base64,
       :name => "California Academy of Sciences",
       :address => "55 Music Concourse Dr\nSan Francisco, CA 94118",
       :phone_number => "415-379-8000",
@@ -444,13 +434,11 @@ elsif ENV['SEEDS_ENV'] == "production"
     )
   end
 
-  #place.photos.create()
-
   #-------------------------------------------
 
   # Create a place
   place = Place.create!(
-      :permanent_id_num => "7",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Haight-Ashbury",
       :address => "Haight-Ashbury, San francisco CA",
       :phone_number => "",
@@ -487,13 +475,11 @@ elsif ENV['SEEDS_ENV'] == "production"
     )
   end
 
-  #place.photos.create()
-
   #-------------------------------------------
 
   # Create a place
   place = Place.create!(
-      :permanent_id_num => "8",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Chinatown",
       :address => "Chinatown, San Francisco CA",
       :phone_number => "",
@@ -530,13 +516,11 @@ elsif ENV['SEEDS_ENV'] == "production"
     )
   end
 
-  #place.photos.create()
-
   #-------------------------------------------
 
   # Create a place
   place = Place.create!(
-      :permanent_id_num => "9",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Lombard Street",
       :address => "Lombard St, San Francisco\nCA 94133",
       :phone_number => "",
@@ -573,13 +557,11 @@ elsif ENV['SEEDS_ENV'] == "production"
     )
   end
 
-  #place.photos.create()
-
   #-------------------------------------------
 
   # Create a place
   place = Place.create!(
-      :permanent_id_num => "10",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Coit tower",
       :address => "1 Telegraph Hill Blvd\nSan Francisco, CA 94133",
       :phone_number => "",
@@ -616,13 +598,11 @@ elsif ENV['SEEDS_ENV'] == "production"
     )
   end
 
-  #place.photos.create()
-
   #-------------------------------------------
 
   # Create a place
   place = Place.create!(
-      :permanent_id_num => "11",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Ferry Building Marketplace",
       :address => "1 Sausalito - San Francisco Ferry Bldg\nSan Francisco, CA 94111",
       :phone_number => "415-983-8030",
@@ -659,13 +639,11 @@ elsif ENV['SEEDS_ENV'] == "production"
     )
   end
 
-  #place.photos.create()
-
   #-------------------------------------------
 
   # Create a place
   place = Place.create!(
-      :permanent_id_num => "12",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Filoli",
       :address => "86 Canada Road\nWoodside, CA, United States",
       :phone_number => "650-364-8300",
@@ -709,13 +687,11 @@ elsif ENV['SEEDS_ENV'] == "production"
     )
   end
 
-  #place.photos.create()
-
   #-------------------------------------------
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "13",
+      :permanent_id_num => SecureRandom.base64,
       :name => "San Francisco Botanical Garden Society",
       :address => "1199 9th Avenue, San Francisco, CA, United States",
       :phone_number => "(415) 661-1316",
@@ -791,7 +767,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "14",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Conservatory of Flowers",
       :address => "100 John F Kennedy Drive, San Francisco, CA, United States",
       :phone_number => "(415) 831-2090",
@@ -839,7 +815,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "20",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Mount Tamalpais State Park",
       :address => "Mill Valley, CA, United States",
       :phone_number => "(415) 388-2070",
@@ -880,7 +856,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "21",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Coyote Hills Regional Park",
       :address => "8000 Patterson Ranch Road, Fremont, CA, United States",
       :phone_number => "(510) 544-3220",
@@ -935,7 +911,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "22",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Briones Regional Park",
       :address => "5363 Alhambra Valley Rd, Martinez, CA, United States",
       :phone_number => "(888) 327-2757",
@@ -976,7 +952,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "23",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Pleasanton Ridge Regional Park",
       :address => "9895 Foothill Rd, Sunol, CA, United States",
       :phone_number => "(925) 931-1335",
@@ -1009,7 +985,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 #-------------------------------------------
   # Create a place
   place = Place.create(
-      :permanent_id_num => "24",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Baylands Nature Preserve",
       :address => "2775 Embarcadero Way, Palo Alto, CA, United States",
       :phone_number => "(650) 329-2506",
@@ -1087,7 +1063,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "25",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Muir Woods National Monument",
       :address => "Mill Valley, CA 94941‎",
       :phone_number => "(415) 388-2596",
@@ -1121,7 +1097,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "26",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Angel Island State Park",
       :address => "Pier 41, San Francisco, CA 94109‎",
       :phone_number => "415 435 1915",
@@ -1162,7 +1138,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "27",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Lands End",
       :address => "Western End Geary Blvd., San Francisco, CA 94121‎",
       :phone_number => "415-556-8642",
@@ -1203,7 +1179,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "28",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Black Diamond Mines Regional Preserve",
       :address => "5175 Somersville Road, Antioch, CA, United States",
       :phone_number => "(888) 327-2757",
@@ -1258,7 +1234,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "41",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Jardinière",
       :address => "300 Grove Street, San Francisco, CA, United States",
       :phone_number => "(415) 861-5555",
@@ -1334,7 +1310,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "42",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Patxi's",
       :address => "511 Hayes Street, San Francisco, California, United States",
       :phone_number => "(415) 558-9991",
@@ -1417,7 +1393,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "43",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Bossa Nova",
       :address => "139 8th Street, San Francisco, CA, United States",
       :phone_number => "(415) 558-8004",
@@ -1506,7 +1482,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "44",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Fourbarrel Coffee",
       :address => "375 Valencia Street, San Francisco, CA, United States",
       :phone_number => "(415) 252-0800",
@@ -1589,7 +1565,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "45",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Sightglass",
       :address => "270 7th Street, San Francisco, CA, United States",
       :phone_number => "(415) 861-1313",
@@ -1665,7 +1641,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "46",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Suppenküche",
       :address => "525 Laguna Street, San Francisco, CA, United States",
       :phone_number => "(415) 252-9289",
@@ -1720,7 +1696,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "47",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Dottie's",
       :address => "28 6th Street, San Francisco, CA, United States",
       :phone_number => "(415) 885-2767",
@@ -1779,7 +1755,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "48",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Limón Rotisserie",
       :address => "524 Valencia Street, San Francisco, CA, United States",
       :phone_number => "(415) 252-0918",
@@ -1862,7 +1838,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "61",
+      :permanent_id_num => SecureRandom.base64,
       :name => "DNA Lounge",
       :address => "375 Eleventh St., San Francisco, CA, United States",
       :phone_number => "(415) 626-1409",
@@ -1917,7 +1893,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "62",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Bimbo's 365 Club",
       :address => "1025 Columbus Avenue, San Francisco, CA, United States",
       :phone_number => "(415) 474-0365",
@@ -1965,7 +1941,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "63",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Freight & Salvage Coffeehouse",
       :address => "2020 Addison Street, Berkeley, CA, United States",
       :phone_number => "(510) 644-2020",
@@ -2069,7 +2045,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "64",
+      :permanent_id_num => SecureRandom.base64,
       :name => "MatrixFillmore",
       :address => "3138 Fillmore Street, San Francisco, CA, United States",
       :phone_number => "(415) 563-4180",
@@ -2133,7 +2109,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "65",
+      :permanent_id_num => SecureRandom.base64,
       :name => "The Endup",
       :address => "401 6th Street, San Francisco, CA, United States",
       :phone_number => "(415) 896-1075",
@@ -2188,7 +2164,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "66",
+      :permanent_id_num => SecureRandom.base64,
       :name => "The Uptown Nightclub",
       :address => "1928 Telegraph Avenue, Oakland, CA, United States",
       :phone_number => "(510) 451-8100",
@@ -2229,7 +2205,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "67",
+      :permanent_id_num => SecureRandom.base64,
       :name => "El Rio",
       :address => "3158 Mission Street, San Francisco, CA, United States",
       :phone_number => "(415) 282-3325",
@@ -2284,7 +2260,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "68",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Smuggler's Cove",
       :address => "650 Gough Street, San Francisco, CA, United States",
       :phone_number => "(415) 869-1900",
@@ -2325,7 +2301,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "69",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Bossa Nova",
       :address => "139 8th Street, San Francisco, CA, United States",
       :phone_number => "(415) 558-8004",
@@ -2428,7 +2404,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "70",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Temple Nightclub",
       :address => "540 Howard Street, San Francisco, California, United States",
       :phone_number => "(415) 978-9942",
@@ -2473,7 +2449,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
 # Create a place
   place = Place.create(
-      :permanent_id_num => "71",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Zeitgeist",
       :address => "199 Valencia Street, San Francisco, CA, United States",
       :phone_number => "(415) 255-7505",
@@ -2523,7 +2499,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "81",
+      :permanent_id_num => SecureRandom.base64,
       :name => "The Olympic Club",
       :address => "599 Skyline Blvd, San Francisco, CA, United States",
       :phone_number => "(415) 404-4300",
@@ -2564,7 +2540,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "82",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Golden Gate Fields",
       :address => "1100 Eastshore Highway, Berkeley, CA, United States",
       :phone_number => "(510) 559-7300",
@@ -2619,7 +2595,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "83",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Presidio Golf Course",
       :address => "300 Finley Road, San Francisco, CA, United States",
       :phone_number => "(415) 561-4653",
@@ -2674,7 +2650,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "84",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Planet Granite",
       :address => "924 Mason Street, San Francisco, CA, United States",
       :phone_number => "(415) 692-3434",
@@ -2750,7 +2726,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "85",
+      :permanent_id_num => SecureRandom.base64,
       :name => "House of Air",
       :address => "926 Old Mason St, San Francisco, CA, United States",
       :phone_number => "(415) 345-9675",
@@ -2791,7 +2767,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "86",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Berkeley Ironworks Climbing & Fitness",
       :address => "800 Potter Street, Berkeley, CA, United States",
       :phone_number => "(510) 981-9900",
@@ -2867,7 +2843,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "87",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Fourth Street Bowl",
       :address => "1441 North 4th Street, San Jose, CA, United States",
       :phone_number => "(408) 453-5555",
@@ -2908,7 +2884,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "88",
+      :permanent_id_num => SecureRandom.base64,
       :name => "San Jose Municipal Golf Course",
       :address => "1560 Oakland Road, San Jose, California, United States",
       :phone_number => "(408) 441-4653",
@@ -2984,7 +2960,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "89",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Lake Chabot Golf Course",
       :address => "11450 Golf Links Road, Oakland, CA, United States",
       :phone_number => "(510) 351-5812",
@@ -3018,7 +2994,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "90",
+      :permanent_id_num => SecureRandom.base64,
       :name => "LaLanne Fitness",
       :address => "960 Howard Street, San Francisco, CA, United States",
       :phone_number => "(415) 512-7645",
@@ -3088,7 +3064,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "101",
+      :permanent_id_num => SecureRandom.base64,
       :name => "California's Great America",
       :address => "4701 Great America Parkway, Santa Clara, CA, United States",
       :phone_number => "(408) 988-1776",
@@ -3136,7 +3112,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "102",
+      :permanent_id_num => SecureRandom.base64,
       :name => "House of Air",
       :address => "926 Old Mason St, San Francisco, CA, United States",
       :phone_number => "(415) 345-9675",
@@ -3212,7 +3188,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "103",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Lemans Karting",
       :address => "45957 Hotchkiss Street, Fremont, CA, United States",
       :phone_number => "(510) 770-9001",
@@ -3288,7 +3264,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "104",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Gokart Racer",
       :address => "1541 Adrian Road, Burlingame, CA, United States",
       :phone_number => "(650) 692-7223",
@@ -3357,7 +3333,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "105",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Laser Quest",
       :address => "1400 North Shoreline Boulevard, Mountain View, CA, United States",
       :phone_number => "(650) 965-9800",
@@ -3428,7 +3404,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "106",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Dart Ops",
       :address => "1150 El Camino Real #141, San Bruno, CA, United States",
       :phone_number => "(650) 952-2297",
@@ -3489,7 +3465,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "107",
+      :permanent_id_num => SecureRandom.base64,
       :name => "KGB Kiteboarding",
       :address => "3310 Powell Street, Emeryville, CA, United States",
       :phone_number => "(510) 967-8014",
@@ -3522,7 +3498,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 #-------------------------------------------
   # Create a place
   place = Place.create(
-      :permanent_id_num => "108",
+      :permanent_id_num => SecureRandom.base64,
       :name => "California Hang Gliding",
       :address => "San Rafael, CA 94901",
       :phone_number => "(650) 451-2549",
@@ -3556,7 +3532,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "109",
+      :permanent_id_num => SecureRandom.base64,
       :name => "Bay Area Skydiving",
       :address => "6901 Armstrong Rd Byron, CA 94514",
       :phone_number => "(925) 634-7575",
@@ -3590,7 +3566,7 @@ elsif ENV['SEEDS_ENV'] == "production"
 
   # Create a place
   place = Place.create(
-      :permanent_id_num => "110",
+      :permanent_id_num => SecureRandom.base64,
       :name => "iFLY SF Bay",
       :address => "31310 Alvarado Niles Rd, Union City, CA 94587",
       :phone_number => "(510) 489-4359",
