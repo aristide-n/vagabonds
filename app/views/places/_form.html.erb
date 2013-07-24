@@ -1,0 +1,11 @@
+<%= simple_form_for(@place) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :review_summary %>
+  <%= f.association :category %>
+  <%= f.input :duration %>
+  <%= f.input :price_level, collection: 0..3 %>
+  <%= f.input :address %>
+  <%= f.input :phone_number %>
+  <%= f.input :website %>
+  <%= f.button :submit %>
+<% end %>

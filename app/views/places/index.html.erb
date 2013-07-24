@@ -1,8 +1,31 @@
-<h1>Recommended Places</h1>
+<h1>Listing places</h1>
 
-<% @recommended_places[0].each do |place| %>
-    <p><%= link_to place.name, place %></p>
-<% end %>
-<% @recommended_places[1].each do |place| %>
-    <p><%= link_to place.name, place %></p>
-<% end %>
+<table>
+  <tr>
+    <th>No.</th>
+    <th>Name</th>
+    <th>Cat</th>
+    <th>Dur</th>
+    <th>Review_Summary</th>
+  </tr>
+
+  <% @places.each_with_index do |place, index| %>
+    <tr>
+      <td><%= index %>. </td>
+      <td><%= place.name %></td>
+      <td><%= place.category.name %></td>
+      <td><%= place.duration %></td>
+      <td><%= place.review_summary %></td>
+    </tr>
+    <tr>
+      <td><%= link_to 'Show', place %>
+        <%= link_to 'Edit', edit_place_path(place) %>
+        <%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+
+  <% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Place', new_place_path %>
