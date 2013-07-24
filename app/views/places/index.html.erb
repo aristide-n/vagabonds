@@ -20,7 +20,7 @@
     <tr>
       <td><%= link_to 'Show', place %>
         <%= link_to 'Edit', edit_place_path(place) %>
-        <%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= button_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
 
   <% end %>
