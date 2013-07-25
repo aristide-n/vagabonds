@@ -527,7 +527,7 @@ elsif ENV['SEEDS_ENV'] == "production"
       :rating => 4.5,
       :website => "",
       :price_level => 0,
-      :review_summary => "San Francisco's Chinatown is the largest outside of Asia.  It is a place many visitors want to see and put high on their list of places to go.  But read the reviews and many are quite negative.  Why?  Because it is an intense, densely populated area that still retains its ethnic identity.  If all of San Francisco's 49 square miles were as closely packed as Chinatown, the city's population would be 8 MILLION (rather than about 800,000). ",
+      :review_summary => "Known as the \"crookedest\" street in the world, the steep hills and sharp curves of this one-way road pass by grand Victorian mansions and attract millions of tourists each year.",
       :duration => 1
   )
 
