@@ -9,7 +9,7 @@
       $(window).load(
               // Map initializer
               function initialize() {
-                  debugger
+
                   var mapOptions = {
                       center : new google.maps.LatLng(37.772886,-122.419496),
                       zoom : 8,
@@ -83,6 +83,7 @@
           $('#budget').val("<%=@user_input[:budget]%>");
 
       });
+
   </script>
 
 
@@ -122,7 +123,7 @@
 <div class="itinerary">
   <div id="schedule" class="itinerary_panel left">
     <div class="itineraryslider">
-      <ul class="slides">
+      <ul class="slides" id="slides">
         <% @recommended_places.keys.sort.each do |day|  %>
         <li class="day">
           <div class="title">DAY <%= day+1 %></div>
@@ -132,7 +133,7 @@
             <% if @photos.empty? %>
                   <%= image_tag"no_photo_icon.jpg" %>
             <% else %>
-                    <% url =  @photos[0].url  %>
+                    <% url =  @photos[0].uploaded.url  %>
                     <%= image_tag(url) %>
             <% end %>
             <%= link_to place do %>
@@ -194,12 +195,14 @@
       You remember that bridge that magneto flew to that island? You're going to the San Francisco Bay Area where you can walk on the bridge AND the island!
     </p>
 
-    <form>
-      <input type="submit" value="Print the Schedule">
-    </form>
+
+      <button type="button" name="print_itinerary" onclick="printItinerary()">Print the Schedule</button>
+
 
 
   </div>
 </div>
 
+</div>
+<div id="printArea">
 </div>
