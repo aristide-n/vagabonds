@@ -79,6 +79,8 @@ class PlacesController < ApplicationController
      Place.recommendations(params)
   end
 
+
+
   def show
     @place = Place.find(params[:id])
   end

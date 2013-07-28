@@ -84,6 +84,8 @@
 
       });
 
+
+
   </script>
 
 
@@ -204,5 +206,54 @@
 </div>
 
 </div>
-<div id="printArea">
-</div>
+
+
+  <script>
+      //Temporary code for Printing itinerary
+      function printItinerary(){
+          var printString = "";
+          var printWindow = window.open('print');
+          var styleString = '<%= stylesheet_link_tag "style.css", :media => "all"%>';
+
+
+      <% @recommended_places.keys.sort.each do |day|  %>
+          printString += "<div class='itinerary_panel left'><div class='title'>DAY <%= day+1 %></div>"  ;
+      <% @recommended_places[day].each do |place|%>
+          printString+= "<div class='act'>" ;
+      <% @photos = Photo.where('place_id = ?', place.id)%>
+      <% if @photos.empty? %>
+          printString+='<%= image_tag'no_photo_icon.jpg' %>';
+      <% else %>
+      <% url =  @photos[0].uploaded.url  %>
+          printString+='<%= image_tag(url) %>';
+      <% end %>
+          printString+="<div class = 'act-detail'><div class='act-name'><%= place.name%>";
+      <% rating = place.rating.to_i %>
+      <% if rating != nil %>
+      <% rating.times do %>
+          printString+='<%= image_tag'star.jpg', :class => 'rating_star'%>';
+      <% end %>
+      <% end %>
+          printString+= "</div><div class='act-time'><%= place.duration.to_i%> hour</div><div class='act-cost'>";
+      <% place.price_level.times do%>
+          printString+="$";
+      <% end %>
+          printString+="</div></div></div><div class='commute_detail'><div id='left_arrow'>";
+          printString+='<%= image_tag "arrowicon1.png"%></div> <%= image_tag "mapicon.jpg"%> 30 minutes <%= image_tag"caricon.png"%>';
+          printString+="<div id='right_arrow'>";
+          printString+='<%= image_tag "arrowicon2.png"%>' ;
+          printString+="</div></div>"
+          <% end %>;
+          printString+="</div>";
+
+      <% end %>
+          printWindow.document.write('<html><head><title>Print Itinerary</title>');
+          printWindow.document.write(styleString);
+          printWindow.document.write('</head><body><%=render :partial => "./layouts/header"%><div style="margin-left:80px">');
+          printWindow.document.write('<h1>Bon Voyage Vagabonds!</h1> <button type="button" name="print_itinerary" onclick="javascript:window.print(); window.close();">Print</button><br/><br/>');
+          printWindow.document.write(printString);
+          printWindow.document.write('</div><%= render :partial => "./layouts/footer" %></body></html>');
+
+      }
+  </script>
+
