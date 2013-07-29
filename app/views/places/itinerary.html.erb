@@ -40,6 +40,7 @@
           "Theatre",
           "Historic Site"
       ];
+      var selectedMode="DRIVING";
 
       $(function() {
           // Datepicker
@@ -73,7 +74,33 @@
               $('#commute1').toggle();
           });
 
+          //commute directions
+          $('.transport_mode').click(function(){
+              selectedMode = $(this).attr("id");
+
+              $(this).attr("class", "transport_modeClicked");
+              if(selectedMode == "DRIVING"){
+                  $('#BICYCLING').attr("class", "transport_mode");
+                  $('#WALKING').attr("class", "transport_mode");
+              }
+              if(selectedMode == "WALKING"){
+                  $('#BICYCLING').attr("class", "transport_mode");
+                  $('#DRIVING').attr("class", "transport_mode");
+              }
+              if(selectedMode == "BICYCLING"){
+                  $('#DRIVING').attr("class", "transport_mode");
+                  $('#WALKING').attr("class", "transport_mode");
+              }
+
+              console.log(selectedMode);
+              console.log($(this).closest("div").attr("id"));
+          });
+
+
       });
+      var bikeDurations = new Array();
+      var driveDurations = new Array();
+      var walkDurations = new Array();
       //set form values
       $(document).ready(function()
       {
@@ -81,6 +108,8 @@
           $('#start_date').val("<%=@user_input[:start_date]%>");
           $('#end_date').val("<%=@user_input[:end_date]%>");
           $('#budget').val("<%=@user_input[:budget]%>");
+
+          //TO_DO: populate duration arrays with directions api
 
       });
 
@@ -180,7 +209,14 @@
           </div>
           <!--Commute details-->
           <!--id hack for now--> 	<div id="commute1" class="commute_detail">
-          <div id="left_arrow"> <%= image_tag "arrowicon1.png"%></div> <%= image_tag "mapicon.jpg"%> 30 minutes <%= image_tag"caricon.png"%> <div id="right_arrow"> <%= image_tag "arrowicon2.png"%></div>
+          <div id="transport">
+            <%= image_tag "arrowicon1.png", :class => "left_arrow"%>
+            Transport Mode
+            <%= image_tag"car.png", :id => "DRIVING", :class => "transport_mode"%>
+            <%= image_tag"bike.png", :id => "BICYCLING", :class => "transport_mode"%>
+            <%= image_tag"walk.png", :id => "WALKING", :class => "transport_mode"%>
+            <%= image_tag "arrowicon2.png",:class => "right_arrow" %>
+          </div>
 
         </div>
         <% end %>
@@ -212,7 +248,7 @@
       //Temporary code for Printing itinerary
       function printItinerary(){
           var printString = "";
-          var printWindow = window.open('print');
+          var printWindow = window.open('');
           var styleString = '<%= stylesheet_link_tag "style.css", :media => "all"%>';
 
 
@@ -238,16 +274,15 @@
       <% place.price_level.times do%>
           printString+="$";
       <% end %>
-          printString+="</div></div></div><div class='commute_detail'><div id='left_arrow'>";
-          printString+='<%= image_tag "arrowicon1.png"%></div> <%= image_tag "mapicon.jpg"%> 30 minutes <%= image_tag"caricon.png"%>';
-          printString+="<div id='right_arrow'>";
-          printString+='<%= image_tag "arrowicon2.png"%>' ;
-          printString+="</div></div>"
+          printString+="</div></div></div><div class='commute_detail'>";
+          printString+='<%= image_tag "arrowicon1.png", :class => "left_arrow" %>  Transport Mode <%= image_tag"car.png"%> <%= image_tag"bike.png"%> <%= image_tag"walk.png"%>';
+          printString+='<%= image_tag "arrowicon2.png", :class => "right_arrow"%>' ;
+          printString+="</div>"
           <% end %>;
           printString+="</div>";
 
       <% end %>
-          printWindow.document.write('<html><head><title>Print Itinerary</title>');
+          printWindow.document.write('<html><head><title>Print Preview: Itinerary</title>');
           printWindow.document.write(styleString);
           printWindow.document.write('</head><body><%=render :partial => "./layouts/header"%><div style="margin-left:80px">');
           printWindow.document.write('<h1>Bon Voyage Vagabonds!</h1> <button type="button" name="print_itinerary" onclick="javascript:window.print(); window.close();">Print</button><br/><br/>');

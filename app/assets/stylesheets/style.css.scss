@@ -420,31 +420,39 @@ div.block {
 }
 
 .commute_detail {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  padding: 3px;
   overflow: auto;
   img {
-    height: 25px;
-    width: 25px;
+
     margin-right: 10px;
     margin-left: 10px;
-    opacity: 0.8;
+
   }
 
-  #left_arrow {
+  .left_arrow {
     float: left;
     margin-right: 70px;
+
   }
 
-  #right_arrow {
+  .right_arrow {
     float: right;
 
   }
 
 }
 
-.commute_detail:hover {
-
-  background: #D0D0D0
+.transport_modeClicked {
+  border:3px solid #228b22;
+  border-radius: 5px;
+  background: #dcdcdc;
+  padding: 2px;
+  opacity: 1.0;
+  cursor: pointer; cursor: hand;
+}
+.transport_mode:hover {
+   @extend .transport_modeClicked;
 }
 
 #map_canvas {
