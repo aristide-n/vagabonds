@@ -80,16 +80,16 @@
 
               $(this).attr("class", "transport_modeClicked");
               if(selectedMode == "DRIVING"){
-                  $('#BICYCLING').attr("class", "transport_mode");
-                  $('#WALKING').attr("class", "transport_mode");
+                  $(this).siblings('#BICYCLING').attr("class", "transport_mode");
+                  $(this).siblings('#WALKING').attr("class", "transport_mode");
               }
               if(selectedMode == "WALKING"){
-                  $('#BICYCLING').attr("class", "transport_mode");
-                  $('#DRIVING').attr("class", "transport_mode");
+                  $(this).siblings('#BICYCLING').attr("class", "transport_mode");
+                  $(this).siblings('#DRIVING').attr("class", "transport_mode");
               }
               if(selectedMode == "BICYCLING"){
-                  $('#DRIVING').attr("class", "transport_mode");
-                  $('#WALKING').attr("class", "transport_mode");
+                  $(this).siblings('#DRIVING').attr("class", "transport_mode");
+                  $(this).siblings('#WALKING').attr("class", "transport_mode");
               }
 
               console.log(selectedMode);
