@@ -197,7 +197,7 @@ class Place < ActiveRecord::Base
                 end
 
                 rem_hrs_in_each_day[day] -= place.duration
-                #category_max_hours[place.category.name] -= place.duration
+                category_max_hours[place.category.name] -= place.duration
               end
             end
 
