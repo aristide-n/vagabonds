@@ -1,0 +1,17 @@
+<h1>Editing place</h1>
+
+<%= render 'form' %>
+
+
+<h2>Photos</h2>
+<% @photos = @place.photos %>
+<%= render 'photos' %>
+
+<h2>Periods</h2>
+
+
+<h2>Reviews</h2>
+
+
+<%= link_to 'Show', @place %> |
+<%= link_to 'Back', places_path %>

@@ -1,5 +1,5 @@
 class Photo < ActiveRecord::Base
-  attr_accessible :height, :reference_id, :width, :uploaded
+  attr_accessible :height, :reference_id, :width, :uploaded, :place_id
   belongs_to :place
 
   # This method associates the attribute ":uploaded" with a file attachment

@@ -186,6 +186,9 @@ GEM
       faraday (~> 0.8.1)
       jwt (>= 0.1.5)
       multi_json (>= 1.0.0)
+    simple_form (2.1.0)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -235,5 +238,6 @@ DEPENDENCIES
   rb-fsevent (~> 0.9)
   rspec-rails (>= 2.13.2)
   sass-rails (~> 3.2.3)
+  simple_form
   thin (>= 1.5.0)
   uglifier (>= 1.0.3)

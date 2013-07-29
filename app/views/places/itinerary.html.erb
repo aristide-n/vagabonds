@@ -9,7 +9,7 @@
       $(window).load(
               // Map initializer
               function initialize() {
-                  debugger
+
                   var mapOptions = {
                       center : new google.maps.LatLng(37.772886,-122.419496),
                       zoom : 8,
@@ -40,6 +40,7 @@
           "Theatre",
           "Historic Site"
       ];
+      var selectedMode="DRIVING";
 
       $(function() {
           // Datepicker
@@ -73,7 +74,33 @@
               $('#commute1').toggle();
           });
 
+          //commute directions
+          $('.transport_mode').click(function(){
+              selectedMode = $(this).attr("id");
+
+              $(this).attr("class", "transport_modeClicked");
+              if(selectedMode == "DRIVING"){
+                  $(this).siblings('#BICYCLING').attr("class", "transport_mode");
+                  $(this).siblings('#WALKING').attr("class", "transport_mode");
+              }
+              if(selectedMode == "WALKING"){
+                  $(this).siblings('#BICYCLING').attr("class", "transport_mode");
+                  $(this).siblings('#DRIVING').attr("class", "transport_mode");
+              }
+              if(selectedMode == "BICYCLING"){
+                  $(this).siblings('#DRIVING').attr("class", "transport_mode");
+                  $(this).siblings('#WALKING').attr("class", "transport_mode");
+              }
+
+              console.log(selectedMode);
+              console.log($(this).closest("div").attr("id"));
+          });
+
+
       });
+      var bikeDurations = new Array();
+      var driveDurations = new Array();
+      var walkDurations = new Array();
       //set form values
       $(document).ready(function()
       {
@@ -82,7 +109,12 @@
           $('#end_date').val("<%=@user_input[:end_date]%>");
           $('#budget').val("<%=@user_input[:budget]%>");
 
+          //TO_DO: populate duration arrays with directions api
+
       });
+
+
+
   </script>
 
 
@@ -122,7 +154,7 @@
 <div class="itinerary">
   <div id="schedule" class="itinerary_panel left">
     <div class="itineraryslider">
-      <ul class="slides">
+      <ul class="slides" id="slides">
         <% @recommended_places.keys.sort.each do |day|  %>
         <li class="day">
           <div class="title">DAY <%= day+1 %></div>
@@ -132,7 +164,7 @@
             <% if @photos.empty? %>
                   <%= image_tag"no_photo_icon.jpg" %>
             <% else %>
-                    <% url =  @photos[0].url  %>
+                    <% url =  @photos[0].uploaded.url  %>
                     <%= image_tag(url) %>
             <% end %>
             <%= link_to place do %>
@@ -177,7 +209,14 @@
           </div>
           <!--Commute details-->
           <!--id hack for now--> 	<div id="commute1" class="commute_detail">
-          <div id="left_arrow"> <%= image_tag "arrowicon1.png"%></div> <%= image_tag "mapicon.jpg"%> 30 minutes <%= image_tag"caricon.png"%> <div id="right_arrow"> <%= image_tag "arrowicon2.png"%></div>
+          <div id="transport">
+            <%= image_tag "arrowicon1.png", :class => "left_arrow"%>
+            Transport Mode
+            <%= image_tag"car.png", :id => "DRIVING", :class => "transport_mode"%>
+            <%= image_tag"bike.png", :id => "BICYCLING", :class => "transport_mode"%>
+            <%= image_tag"walk.png", :id => "WALKING", :class => "transport_mode"%>
+            <%= image_tag "arrowicon2.png",:class => "right_arrow" %>
+          </div>
 
         </div>
         <% end %>
@@ -191,14 +230,65 @@
     <div id="map_canvas"></div>
 
     <p>
-      You remember that bridge that magneto flew to that island? You're going to the San Francisco Bay Area where you can walk on the bridge AND the island!<br><br>
-      <em>The total cost of your schedule is</em> <b>$ 200.00</b>
+      You remember that bridge that magneto flew to that island? You're going to the San Francisco Bay Area where you can walk on the bridge AND the island!
     </p>
 
-    <form>
-      <input type="submit" value="Save the Schedule">
-    </form>
+
+      <button type="button" name="print_itinerary" onclick="printItinerary()">Print the Schedule</button>
+
+
+
   </div>
 </div>
 
 </div>
+
+
+  <script>
+      //Temporary code for Printing itinerary
+      function printItinerary(){
+          var printString = "";
+          var printWindow = window.open('');
+          var styleString = '<%= stylesheet_link_tag "style.css", :media => "all"%>';
+
+
+      <% @recommended_places.keys.sort.each do |day|  %>
+          printString += "<div class='itinerary_panel left'><div class='title'>DAY <%= day+1 %></div>"  ;
+      <% @recommended_places[day].each do |place|%>
+          printString+= "<div class='act'>" ;
+      <% @photos = Photo.where('place_id = ?', place.id)%>
+      <% if @photos.empty? %>
+          printString+='<%= image_tag'no_photo_icon.jpg' %>';
+      <% else %>
+      <% url =  @photos[0].uploaded.url  %>
+          printString+='<%= image_tag(url) %>';
+      <% end %>
+          printString+="<div class = 'act-detail'><div class='act-name'><%= place.name%>";
+      <% rating = place.rating.to_i %>
+      <% if rating != nil %>
+      <% rating.times do %>
+          printString+='<%= image_tag'star.jpg', :class => 'rating_star'%>';
+      <% end %>
+      <% end %>
+          printString+= "</div><div class='act-time'><%= place.duration.to_i%> hour</div><div class='act-cost'>";
+      <% place.price_level.times do%>
+          printString+="$";
+      <% end %>
+          printString+="</div></div></div><div class='commute_detail'>";
+          printString+='<%= image_tag "arrowicon1.png", :class => "left_arrow" %>  Transport Mode <%= image_tag"car.png"%> <%= image_tag"bike.png"%> <%= image_tag"walk.png"%>';
+          printString+='<%= image_tag "arrowicon2.png", :class => "right_arrow"%>' ;
+          printString+="</div>"
+          <% end %>;
+          printString+="</div>";
+
+      <% end %>
+          printWindow.document.write('<html><head><title>Print Preview: Itinerary</title>');
+          printWindow.document.write(styleString);
+          printWindow.document.write('</head><body><%=render :partial => "./layouts/header"%><div style="margin-left:80px">');
+          printWindow.document.write('<h1>Bon Voyage Vagabonds!</h1> <button type="button" name="print_itinerary" onclick="javascript:window.print(); window.close();">Print</button><br/><br/>');
+          printWindow.document.write(printString);
+          printWindow.document.write('</div><%= render :partial => "./layouts/footer" %></body></html>');
+
+      }
+  </script>
+
