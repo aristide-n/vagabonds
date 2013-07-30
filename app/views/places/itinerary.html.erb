@@ -1,6 +1,6 @@
 
   <!-- GET THE GOOGLE MAP API -->
-  <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  <script src="http://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 
   <script type="text/javascript">
 
@@ -41,6 +41,7 @@
           "Historic Site"
       ];
       var selectedMode="DRIVING";
+      var directionsService = new google.maps.DirectionsService();
 
       $(function() {
           // Datepicker
@@ -77,7 +78,7 @@
           //commute directions
           $('.transport_mode').click(function(){
               selectedMode = $(this).attr("id");
-
+               var elm = $(this).siblings('span#transportTime') ;
               $(this).attr("class", "transport_modeClicked");
               if(selectedMode == "DRIVING"){
                   $(this).siblings('#BICYCLING').attr("class", "transport_mode");
@@ -92,25 +93,43 @@
                   $(this).siblings('#WALKING').attr("class", "transport_mode");
               }
 
-              console.log(selectedMode);
-              console.log($(this).closest("div").attr("id"));
+              var ids = ($(this).closest("div").attr("id")).split("_");
+
+              var origin = ids[0];
+              var destination = ids[1];
+              var modeDuration;
+
+              var request = {
+                  origin: origin,
+                  destination: destination,
+                  travelMode: google.maps.TravelMode[selectedMode]
+              };
+              directionsService.route(request, function(response, status) {
+                  console.log(status);
+                  if (status == google.maps.DirectionsStatus.OK) {
+
+                      modeDuration = response.routes[0].legs[0].duration.text;
+
+                  } else
+                      modeDuration = "Not available";
+                  console.log(elm[0]['innerHTML']);
+                  elm[0]['innerHTML'] = modeDuration;
+              });
+
           });
 
 
       });
-      var bikeDurations = new Array();
-      var driveDurations = new Array();
-      var walkDurations = new Array();
+
+
+
+
       //set form values
       $(document).ready(function()
       {
-
           $('#start_date').val("<%=@user_input[:start_date]%>");
           $('#end_date').val("<%=@user_input[:end_date]%>");
           $('#budget').val("<%=@user_input[:budget]%>");
-
-          //TO_DO: populate duration arrays with directions api
-
       });
 
 
@@ -158,7 +177,7 @@
         <% @recommended_places.keys.sort.each do |day|  %>
         <li class="day">
           <div class="title">DAY <%= day+1 %></div>
-          <% @recommended_places[day].each do |place|%>
+          <% @recommended_places[day].each_with_index do |place, index|%>
           <div class="act">
             <% @photos = Photo.where("place_id = ?", place.id)%>
             <% if @photos.empty? %>
@@ -208,17 +227,20 @@
 
           </div>
           <!--Commute details-->
+              <%if index < @recommended_places[day].size-1 %>
           <!--id hack for now--> 	<div id="commute1" class="commute_detail">
-          <div id="transport">
+          <div id="<%=place.address%>_<%=@recommended_places[day][index+1].address%>">
             <%= image_tag "arrowicon1.png", :class => "left_arrow"%>
             Transport Mode
             <%= image_tag"car.png", :id => "DRIVING", :class => "transport_mode"%>
             <%= image_tag"bike.png", :id => "BICYCLING", :class => "transport_mode"%>
             <%= image_tag"walk.png", :id => "WALKING", :class => "transport_mode"%>
+            <span id="transportTime"></span>
             <%= image_tag "arrowicon2.png",:class => "right_arrow" %>
           </div>
 
         </div>
+            <% end %>
         <% end %>
         </li>
         <% end  %>
