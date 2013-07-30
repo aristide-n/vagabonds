@@ -22,6 +22,13 @@ class Place < ActiveRecord::Base
       total_categories = preferred_categories.length - 1
       base_ratio = 0.857   #24/28
 
+      final_activity_list = {}
+
+      if preferred_categories.include? "best"
+        final_activity_list = best_of()
+      else
+
+
       if preferred_categories.include? "nightlife"
          @time_ratio[:nightlife] = 0.143 #4/28
          base_ratio = 0.714   #20/28
@@ -105,11 +112,15 @@ class Place < ActiveRecord::Base
 =end
 
 # Correspond chosen dates with period table day number
+
       week_days = {}
       week_days[0] = Date.strptime(params["start_date"], "%m/%d/%Y").wday
       week_days[1] = Date.strptime(params["end_date"], "%m/%d/%Y").wday
       final_activity_list = scheduler(recommended_places, week_days)
-      return final_activity_list
+
+    end
+
+    final_activity_list
   end
 
   def self.scheduler(top_places, week_days)
@@ -325,6 +336,52 @@ class Place < ActiveRecord::Base
       day += 1
     end
     scheduled_places_list
+  end
+
+  def self.best_of()
+    scheduled_places_list = {}
+    places_list = []
+    day = 0
+    place_idx = 0
+
+    places_list[place_idx] = Place.where("name = 'Muir Woods National Monument'")[0]
+    place_idx += 1
+    places_list[place_idx] = Place.where("name = 'Golden Gate Bridge'")[0]
+    place_idx += 1
+    places_list[place_idx] = Place.where("name = 'San Francisco Botanical Garden Society'")[0]
+    place_idx += 1
+    places_list[place_idx] = Place.where("name = 'Golden Gate Park'")[0]
+    place_idx += 1
+    places_list[place_idx] = Place.where("name = 'California Academy of Sciences'")[0]
+    place_idx += 1
+    places_list[place_idx] = Place.where("name = 'Twin Peaks'")[0]
+    place_idx += 1
+    #places_list[place_idx] = Place.where("name = 'Patxi's'")[0]
+
+    scheduled_places_list[day] = places_list
+
+
+    places_list = []
+    place_idx = 0
+    day = 1
+    places_list[place_idx] = Place.where("name = 'Alcatraz'")[0]
+    place_idx += 1
+    places_list[place_idx] = Place.where("name = 'Pier 39'")[0]
+    place_idx += 1
+    places_list[place_idx] = Place.where("name = 'Ferry Building Marketplace'")[0]
+    place_idx += 1
+    places_list[place_idx] = Place.where("name = 'Coit tower'")[0]
+    place_idx += 1
+    places_list[place_idx] = Place.where("name = 'Lombard Street'")[0]
+    place_idx += 1
+    places_list[place_idx] = Place.where("name = 'Chinatown'")[0]
+    place_idx += 1
+   # places_list[place_idx] = Place.where("name = 'Jardinière'")[0]
+
+    scheduled_places_list[day] = places_list
+
+    scheduled_places_list
+
   end
 
 end

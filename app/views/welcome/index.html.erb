@@ -14,7 +14,7 @@
 
 <div id="content">
   <div class="wrapper">
-    <%= image_tag "golden_gate2.jpg"%>
+    <%= image_tag "golden_gate2.jpg", :class => "image_style" %>
 
     <div class="home_panel right">
       <h1>Start a New Itinerary</h1>
@@ -30,12 +30,13 @@
         </div>
         <div class="block">
           <%= label_tag(:budget, "Budget:") %>
-          <%= select_tag(:budget, options_for_select([["Free", 0], ["Cheap ($)", 1], ["Moderate ($$)",2], ["Don't Care", 3]], 2)) %>
+          <%= select_tag(:budget, options_for_select([["Free", 0], ["Economical ($)", 1], ["Moderate ($$)",2], ["Don't Care", 3]], 2)) %>
         </div>
         <div class="block">
           <%= label_tag(:categories, "Activity Type:") %>
           <select name="categories[]" id = "activity-type" multiple="multiple">
-            <option value="city" selected>City</option>
+            <option value="best" selected>Best of SF</option>
+            <option value="city" >City</option>
             <option value="nature" >Nature</option>
             <option value="adventure">Adventure</option>
             <option value="sport">Sport</option>
