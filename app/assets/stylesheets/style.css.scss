@@ -432,13 +432,18 @@ div.block {
 
   .left_arrow {
     float: left;
-    margin-right: 70px;
+    margin-right: 40px;
 
   }
 
   .right_arrow {
     float: right;
 
+  }
+  #transportTime {
+      margin-left: 5px;
+      font-size: 18px;
+      color: #2e8b57;
   }
 
 }
