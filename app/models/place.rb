@@ -25,10 +25,6 @@ class Place < ActiveRecord::Base
 
       final_activity_list = {}
 
-      if preferred_categories.include? "best"
-        final_activity_list = best_of()
-      else
-
 
       if preferred_categories.include? "nightlife"
          @time_ratio[:nightlife] = 0.143 #4/28
@@ -118,8 +114,6 @@ class Place < ActiveRecord::Base
       week_days[0] = Date.strptime(params["start_date"], "%m/%d/%Y").wday
       week_days[1] = Date.strptime(params["end_date"], "%m/%d/%Y").wday
       final_activity_list = scheduler(recommended_places, week_days)
-
-    end
 
     final_activity_list
   end

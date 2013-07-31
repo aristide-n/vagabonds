@@ -71,14 +71,22 @@ class PlacesController < ApplicationController
   end
 
   def itinerary
+
     @user_input = params
-    @recommended_places = recommend
-    pp params
+    if params["commit"] == "Make Itinerary"
+      @recommended_places = recommend
+    else
+      @recommended_places = get_best_of
+    end
 
   end
 
+  def get_best_of
+    Place.best_of()
+  end
+
   def recommend
-     Place.recommendations(params)
+    Place.recommendations(params)
   end
 
 

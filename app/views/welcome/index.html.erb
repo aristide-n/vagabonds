@@ -15,10 +15,14 @@
 <div id="content">
 
   <div class="wrapper">
-    <%= image_tag "golden_gate2.jpg"%>
+    <div id="background_image"> <%= image_tag "golden-gate-bridge.jpg"%> </div>
 
-    <div class="home_panel right">
-      <h1>Start a New Itinerary</h1>
+    <%= button_to 'Best of SF', {controller: "places", action: "itinerary"}, {id: "bestof_button", class: "block"} %>
+
+
+
+    <div id="input_panel" class="home_panel right">
+      <h1>Start a Custom Itinerary</h1>
 
       <%= form_tag({controller: "places", action: "itinerary"}, method: "post") do |f| %>
         <div class="block">
@@ -36,8 +40,7 @@
         <div class="block">
           <%= label_tag(:categories, "Activity Type:") %>
           <select name="categories[]" id = "activity-type" multiple="multiple">
-            <option value="best" selected>Best of SF</option>
-            <option value="city" >City</option>
+            <option value="city" selected>City</option>
             <option value="nature" >Nature</option>
             <option value="adventure">Adventure</option>
             <option value="sport">Sport</option>
