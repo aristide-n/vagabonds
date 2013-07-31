@@ -16,7 +16,8 @@ class Place < ActiveRecord::Base
   def self.recommendations(params)
 
       @time_ratio = {food: 0.143, nightlife: 0, nature: 0, adventure: 0, sports: 0, city: 0}
-      preferred_categories = params["categories"] << "food"
+      preferred_categories = params["categories"]
+      preferred_categories << "food";
 
       #setting time ratio based on selected categories by user
       total_categories = preferred_categories.length - 1

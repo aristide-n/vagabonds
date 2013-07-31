@@ -71,8 +71,10 @@ class PlacesController < ApplicationController
   end
 
   def itinerary
-    @recommended_places = recommend
     @user_input = params
+    @recommended_places = recommend
+    pp params
+
   end
 
   def recommend

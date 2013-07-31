@@ -133,15 +133,11 @@
 
       // Pimp the DOM
       var availableTags = [
-          "Hiking",
-          "Biking",
-          "Beach",
-          "Water Sport",
-          "Amusement Park",
-          "Concert",
-          "Museums",
-          "Theatre",
-          "Historic Site"
+          "City",
+          "Nature",
+          "Adventure",
+          "Sport",
+          "Nightlife"
       ];
       var selectedMode="DRIVING";
       var directionsService = new google.maps.DirectionsService();
@@ -235,6 +231,7 @@
           $('#start_date').val("<%=@user_input[:start_date]%>");
           $('#end_date').val("<%=@user_input[:end_date]%>");
           $('#budget').val("<%=@user_input[:budget]%>");
+
       });
 
 
@@ -259,15 +256,11 @@
 		        		<input name="tags" id="tags" value="Hiking, Concert, Historic Site"/>
 		        	</span>
       <p class="content-one">
-        <span class = "activity">Hiking</span> |
-        <span class = "activity">Biking</span> |
-        <span class = "activity">Beach</span> |
-        <span class = "activity">Water Sport</span> |
-        <span class = "activity">Amusement Park</span>
-        <span class = "activity">Museum</span> |
-        <span class = "activity">Concert</span> |
-        <span class = "activity">Theatre</span> |
-        <span class = "activity">Historic Site</span>
+        <span class = "activity">City</span> |
+        <span class = "activity">Nature</span> |
+        <span class = "activity">Adventure</span> |
+        <span class = "activity">Sports</span> |
+        <span class = "activity">Nightlife</span> |
       </p>
     </div>
     <input class="auto-update" type="submit" value="Make Itinerary">

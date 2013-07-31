@@ -156,14 +156,18 @@ header {
 }
 
 #content {
-  margin-bottom: 15px;
+  //margin-bottom: 15px;
+
   // min-height: 560px;
   min-height: 460px;
   div.wrapper {
-    margin: 38px auto;
+
+    width:100%;
+    margin: 0px;
     img {
-      border-radius: 6px;
-      float: left;
+      opacity: 0.3;
+      width: 100%;
+      height: 100%;
     }
   }
   div.itinerary {
@@ -235,6 +239,8 @@ div.home_panel {
     width: 333px;
     height: 352px;
     float: right;
+    //margin-top: -50%;
+    margin-right: 10%;
   }
   * {
     margin: 5px 0;
@@ -343,7 +349,8 @@ div.block {
 
 
 .act:hover .act-more {
-  display: block;
+  display:none; // for first launch
+  //display: block;
   font-size: 12px;
   font-family:"Lucida Console";
   float: right;
@@ -467,10 +474,6 @@ div.block {
   margin-bottom: 50px
 }
 
-.image_style {
-  opacity: 0.3;
-  width: 1280px;
-}
 
 
 //for detail page
