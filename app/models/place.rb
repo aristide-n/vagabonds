@@ -344,19 +344,19 @@ class Place < ActiveRecord::Base
     day = 0
     place_idx = 0
 
-    places_list[place_idx] = Place.where("name = 'Muir Woods National Monument'")[0]
+    places_list[place_idx] = Place.where(name: "Muir Woods National Monument")[0]
     place_idx += 1
-    places_list[place_idx] = Place.where("name = 'Golden Gate Bridge'")[0]
+    places_list[place_idx] = Place.where(name: "Golden Gate Bridge")[0]
     place_idx += 1
-    places_list[place_idx] = Place.where("name = 'San Francisco Botanical Garden Society'")[0]
+    places_list[place_idx] = Place.where(name: "San Francisco Botanical Garden Society")[0]
     place_idx += 1
-    places_list[place_idx] = Place.where("name = 'Golden Gate Park'")[0]
+    places_list[place_idx] = Place.where(name: "Golden Gate Park")[0]
     place_idx += 1
-    places_list[place_idx] = Place.where("name = 'California Academy of Sciences'")[0]
+    places_list[place_idx] = Place.where(name: "California Academy of Sciences")[0]
     place_idx += 1
-    places_list[place_idx] = Place.where("name = 'Twin Peaks'")[0]
+    places_list[place_idx] = Place.where(name: "Twin Peaks")[0]
     place_idx += 1
-    #places_list[place_idx] = Place.where("name = 'Patxi's'")[0]
+    places_list[place_idx] = Place.where(name: "Patxi's")[0]
 
     scheduled_places_list[day] = places_list
 
@@ -364,19 +364,20 @@ class Place < ActiveRecord::Base
     places_list = []
     place_idx = 0
     day = 1
-    places_list[place_idx] = Place.where("name = 'Alcatraz'")[0]
+    places_list[place_idx] = Place.where(name: "Alcatraz")[0]
     place_idx += 1
-    places_list[place_idx] = Place.where("name = 'Pier 39'")[0]
+    places_list[place_idx] = Place.where(name: "Pier 39")[0]
     place_idx += 1
-    places_list[place_idx] = Place.where("name = 'Ferry Building Marketplace'")[0]
+    places_list[place_idx] = Place.where(name: "Ferry Building Marketplace")[0]
     place_idx += 1
-    places_list[place_idx] = Place.where("name = 'Coit tower'")[0]
+    places_list[place_idx] = Place.where(name: "Coit tower")[0]
     place_idx += 1
-    places_list[place_idx] = Place.where("name = 'Lombard Street'")[0]
+    places_list[place_idx] = Place.where(name: "Lombard Street")[0]
     place_idx += 1
-    places_list[place_idx] = Place.where("name = 'Chinatown'")[0]
+    places_list[place_idx] = Place.where(name: "Chinatown")[0]
     place_idx += 1
-   # places_list[place_idx] = Place.where("name = 'Jardinière'")[0]
+   # places_list[place_idx] = Place.where(name: "Jardinière")[0]
+    places_list[place_idx] = Place.where(id: 24)[0]
 
     scheduled_places_list[day] = places_list
 
