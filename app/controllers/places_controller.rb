@@ -71,13 +71,27 @@ class PlacesController < ApplicationController
   end
 
   def itinerary
-
-    @user_input = params
-    if params["commit"] == "Make Itinerary"
-      @recommended_places = recommend
+     #move to form error check to backend?
+    check_fields = !params[:start_date].blank? && (!params[:categories].blank? || !params[:tags].blank?)
+    if params[:commit] == "Make Itinerary"
+      if check_fields
+        @recommended_places = recommend
+      else
+        flash[:error] = "Please enter all the fields!"
+        redirect_to :controller => 'welcome', :action => 'index'
+      end
+    elsif params[:commit] == "Go!"
+      if check_fields
+        params[:categories] = params[:tags].split(',');
+        @recommended_places = recommend
+      else
+        @recommended_places = get_best_of
+        params[:commit]="";
+      end
     else
       @recommended_places = get_best_of
     end
+    @user_input = params
 
   end
 

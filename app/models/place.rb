@@ -24,7 +24,7 @@ class Place < ActiveRecord::Base
       base_ratio = 0.857   #24/28
 
       final_activity_list = {}
-
+      preferred_categories.map!{|c| c.downcase}
 
       if preferred_categories.include? "nightlife"
          @time_ratio[:nightlife] = 0.143 #4/28
@@ -44,7 +44,7 @@ class Place < ActiveRecord::Base
         @time_ratio[:city] = base_ratio / total_categories
       end
 
-     # preferred_categories.map!{|c| c.downcase}
+
 
 
       # Query db for matching categories and budget
@@ -334,6 +334,7 @@ class Place < ActiveRecord::Base
   end
 
   def self.best_of()
+
     scheduled_places_list = {}
     places_list = []
     day = 0

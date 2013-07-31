@@ -144,8 +144,16 @@
 
       $(function() {
           // Datepicker
-          $( "#start_date" ).datepicker();
-          $( "#end_date" ).datepicker();
+          $( "#start_date" ).datepicker({
+              onSelect: function(){
+                  $(this).change(checkDates("start"));
+              }
+          });
+          $( "#end_date" ).datepicker({
+              onSelect: function(){
+                  $(this).change(checkDates("end"));
+              }
+          });
 
           // tags
           $('.expand-one').click(function(){
@@ -228,43 +236,72 @@
       //set form values
       $(document).ready(function()
       {
-          $('#start_date').val("<%=@user_input[:start_date]%>");
-          $('#end_date').val("<%=@user_input[:end_date]%>");
-          $('#budget').val("<%=@user_input[:budget]%>");
+
+           <% if @user_input[:commit] == "Make Itinerary" || @user_input[:commit] == "Go!"%>
+              $('#start_date').val("<%=@user_input[:start_date]%>");
+              $('#end_date').val("<%=@user_input[:end_date]%>");
+              $('#budget').val("<%=@user_input[:budget]%>");
+//to remove "food"          <% @user_input[:categories].pop%>
+          <% @user_input[:categories].each do |category| %>
+              $('#tags').addTag("<%=category%>");
+          console.log($('#tags').val());
+          <% end %>
+          <% end %>
 
       });
 
+      function checkDates(date){
+          console.log("blah");
+          if (date == "start") {
+              var start_date = $("#start_date").datepicker('getDate');
+              var date = new Date(Date.parse(start_date) );
+              date.setDate(date.getDate()+1);
+              $("#end_date").datepicker('setDate',date);
+          }
+          if (date == "end"){
+              var end_date = $("#end_date").datepicker('getDate');
+              var date = new Date(Date.parse(end_date) );
+              date.setDate(date.getDate() - 1);
 
+              $("#start_date").datepicker('setDate',date);
+          }
+      }
 
   </script>
 
 
 <div id="content">
 <div class="wrapper2">
-  <form>
+  <%= form_tag({controller: "places", action: "itinerary"}, method: "post") do |f| %>
     <div class="basic-input">
       <%= label_tag(:start_date, "Start Date:") %>&nbsp&nbsp
       <%= text_field_tag(:start_date) %>	&nbsp&nbsp&nbsp&nbsp
       <%= label_tag(:end_date, "End Date:") %>&nbsp&nbsp
       <%= text_field_tag(:end_date) %>&nbsp&nbsp&nbsp&nbsp
       <%= label_tag(:budget, "Budget:") %>&nbsp&nbsp
-      <%= select_tag(:budget, options_for_select([["Free", 0], ["Cheap ($)", 1], ["Moderate ($$)",2], ["Don't Care", 3]], 2)) %>
+      <%= select_tag(:budget, options_for_select([["Free", 0], ["Economical ($)", 1], ["Moderate ($$)",2], ["Don't Care", 3]], 3)) %>
     </div>
     <div class="activity-tags">
 		        	<span class="expand-one">
 		        		<label for="tags" class="tags_input">Preferred Activities:&nbsp&nbsp</label>
-		        		<input name="tags" id="tags" value="Hiking, Concert, Historic Site"/>
+		        		<input name="tags" id="tags" />
+
 		        	</span>
+      <span class="go"><%= submit_tag("Go!")%> <% if flash[:error] %>
+              <span class="error">
+                <%= flash[:error] %>
+              </span>
+          <% end %></span>
       <p class="content-one">
-        <span class = "activity">City</span> |
-        <span class = "activity">Nature</span> |
-        <span class = "activity">Adventure</span> |
-        <span class = "activity">Sports</span> |
-        <span class = "activity">Nightlife</span> |
+        <span class = "activity">city</span> |
+        <span class = "activity">nature</span> |
+        <span class = "activity">adventure</span> |
+        <span class = "activity">sports</span> |
+        <span class = "activity">nightlife</span> |
       </p>
     </div>
-    <input class="auto-update" type="submit" value="Make Itinerary">
-  </form>
+    <!--<input class="auto-update" type="submit" value="Make Itinerary">  -->
+  <%end%>
 
 </div>
 <!-- On the left the schedule; on the right the map, location description, and save itinerary button -->

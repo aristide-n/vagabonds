@@ -1,13 +1,41 @@
 
   <script>
       $(function() {
-          $( "#start_date" ).datepicker();
-          $( "#end_date" ).datepicker();
+
+          $( "#start_date" ).datepicker({
+              onSelect: function(){
+                  $(this).change(checkDates("start"));
+              }
+          });
+          $( "#end_date" ).datepicker({
+              onSelect: function(){
+                  $(this).change(checkDates("end"));
+              }
+          });
           $("#activity-type").multiselect({
               header: false,
               selectedList: 4
           });
+
       });
+
+
+
+      function checkDates(date){
+          if (date == "start") {
+              var start_date = $("#start_date").datepicker('getDate');
+              var date = new Date(Date.parse(start_date) );
+              date.setDate(date.getDate()+1);
+              $("#end_date").datepicker('setDate',date);
+          }
+          if (date == "end"){
+              var end_date = $("#end_date").datepicker('getDate');
+              var date = new Date(Date.parse(end_date) );
+              date.setDate(date.getDate() - 1);
+
+              $("#start_date").datepicker('setDate',date);
+          }
+      }
   </script>
 
 
@@ -15,6 +43,8 @@
 <div id="content">
 
   <div class="wrapper">
+
+
     <div id="background_image"> <%= image_tag "golden-gate-bridge.jpg"%> </div>
 
     <%= button_to 'Best of SF', {controller: "places", action: "itinerary"}, {id: "bestof_button", class: "block"} %>
@@ -35,7 +65,7 @@
         </div>
         <div class="block">
           <%= label_tag(:budget, "Budget:") %>
-          <%= select_tag(:budget, options_for_select([["Free", 0], ["Economical ($)", 1], ["Moderate ($$)",2], ["Don't Care", 3]], 2)) %>
+          <%= select_tag(:budget, options_for_select([["Free", 0], ["Economical ($)", 1], ["Moderate ($$)",2], ["Don't Care", 3]], 3)) %>
         </div>
         <div class="block">
           <%= label_tag(:categories, "Activity Type:") %>
@@ -46,9 +76,14 @@
             <option value="sport">Sport</option>
             <option value="nightlife">Nightlife</option>
           </select>
-
+          <% if flash[:error] %>
+              <div class="error">
+                <%= flash[:error] %>
+              </div>
+          <% end %>
         </div>
         <div class="block">
+
           <%= submit_tag("Make Itinerary") %>
         </div>
       <% end %>

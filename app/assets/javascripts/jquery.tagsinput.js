@@ -179,7 +179,7 @@
       interactive:true,
       defaultText:'add activities',
       minChars:0,
-      width:'600px',
+      width:'350px',
       height:'30px',
       autocomplete: {selectFirst: false },
       'hide':true,

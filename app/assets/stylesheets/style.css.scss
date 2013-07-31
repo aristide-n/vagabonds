@@ -148,7 +148,11 @@ a {
     }
   }
 }
-
+.go {
+  vertical-align: top;
+  bottom: 15px;
+  position: relative;
+}
 .activity {
   border: 2px solid #cde69c;
   border-radius: 2px;
