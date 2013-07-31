@@ -6,27 +6,130 @@
 
       // Initialize google map
       var map;
+      var geocoder;
+      var markers = {};
+
+      var infoWindow;
+
+      var places = [];
+      var popup_content = [ /* all your popup_content */];
+      var addresses = {}; // {day: [addresses_for the day]}
+      var address_position = 0;
+      var markers = {}
+
+      var timeout = 600;
+
+      // Enable the visual refresh
+      google.maps.visualRefresh = true;
+
       $(window).load(
               // Map initializer
               function initialize() {
 
                   var mapOptions = {
-                      center : new google.maps.LatLng(37.772886,-122.419496),
-                      zoom : 8,
+                      center : new google.maps.LatLng(37.6688205, -122.0807964),
+                      zoom : 9,
                       draggable : true,
                       draggingCursor : 'pointer',
-                      mapTypeControl : true,
-                      disableDoubleClickZoom : true,
+                      mapTypeControl : false,
+                      disableDoubleClickZoom : false,
                       streetViewControl : false,
+                      panControl:false,
 
                       mapTypeId : google.maps.MapTypeId.ROADMAP
                       // take out street view
                   };
                   map = new google.maps.Map(document.getElementById("map_canvas"),
                           mapOptions);
-              }
 
+                  // Initialize the geocoder.
+                  geocoder = new google.maps.Geocoder();
+
+                  // Add markers on the map for activities in the itinerary
+                  <% @recommended_places.keys.sort.each do |day|  %>
+                    addresses[<%= day %>] = [];
+                    markers[<%= day %>] = [];
+                    <% @recommended_places[day].each do |place|%>
+                      addresses[<%= day %>].push("<%= place.address.inspect %>");
+                    <% end %>
+                  <% end %>
+                  console.log(addresses);   // TODO: no log
+
+                  // Add the markers for the first day
+                  addMarker(0, 0);
+              }
       );
+
+      // Function that looks up the geocodes of addresses and adds markers on the map
+      function addMarker(day, markerPosition)
+      {
+        if(typeof (marker = markers[day][markerPosition]) != 'undefined'){
+          marker.setMap(map);
+          markerPosition++;
+          addMarker(day, markerPosition);
+        }
+        else{
+          geocoder.geocode({'address': addresses[day][markerPosition]}, function(results, status)
+          {
+            if (status == google.maps.GeocoderStatus.OK) {
+              places[markerPosition] = results[0].geometry.location;
+
+              var marker = new google.maps.Marker({
+                position: places[markerPosition],
+                map: map,
+                icon:"http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=" + markerPosition + "|a8ec08"
+              });
+              google.maps.event.addListener(marker, 'click', function() {
+                if (!infoWindow) {
+                  infoWindow = new google.maps.InfoWindow();
+                }
+                infoWindow.setContent(popup_content[markerPosition]);
+                infoWindow.open(map, marker);
+              });
+              markers[day].push(marker);
+            }
+            else
+            {
+              if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT)
+              {
+                setTimeout(function() { addMarker(day, markerPosition); }, (timeout * 3));
+                console.log("OVER_QUERY_LIMIT");
+              }
+              else{
+                console.log(status);
+              }
+            }
+
+            markerPosition++;
+
+            if (markerPosition <  addresses[day].length)
+            {
+              setTimeout(function() { addMarker(day, markerPosition); }, (timeout));
+            }
+          });
+        }
+      }
+
+      // Functions to update the markers on the map when the day slide changes
+      function clearMapMarkers(){
+        // Find the visible day
+        var visibleDay = $('.itinerary-active-slide').data('day');
+
+        // clear the markers for the visible day
+        var allMarkers = markers[visibleDay]
+
+        for (i = 0; i < allMarkers.length; i++){
+          allMarkers[i].setMap(null);
+        }
+      }
+
+      function newMapMarkers(){
+        // Find the visible day
+        var visibleDay = $('.itinerary-active-slide').data('day');
+
+        // add the markers for the visible day
+        addMarker(visibleDay, 0);
+      }
 
       // Pimp the DOM
       var availableTags = [
@@ -61,7 +164,9 @@
 
           //slider
           $('.itineraryslider').itineraryslider({
-              slideshow: false
+              slideshow: false,
+              before: clearMapMarkers,
+              after: newMapMarkers
           });
 
           //changing options
@@ -175,7 +280,7 @@
     <div class="itineraryslider">
       <ul class="slides" id="slides">
         <% @recommended_places.keys.sort.each do |day|  %>
-        <li class="day">
+        <li class="day" data-day="<%= day %>">
           <div class="title">DAY <%= day+1 %></div>
           <% @recommended_places[day].each_with_index do |place, index|%>
           <div class="act">
@@ -251,14 +356,7 @@
   <div id="extra_info" class="itinerary_panel right">
     <div id="map_canvas"></div>
 
-    <p>
-      You remember that bridge that magneto flew to that island? You're going to the San Francisco Bay Area where you can walk on the bridge AND the island!
-    </p>
-
-
-      <button type="button" name="print_itinerary" onclick="printItinerary()">Print the Schedule</button>
-
-
+    <button type="button" name="print_itinerary" onclick="printItinerary()">Print the Schedule</button>
 
   </div>
 </div>
@@ -312,5 +410,6 @@
           printWindow.document.write('</div><%= render :partial => "./layouts/footer" %></body></html>');
 
       }
+
   </script>
 
