@@ -45,13 +45,13 @@
   <div class="wrapper">
 
 
-    <div id="background_image"> <%= image_tag "golden-gate-bridge.jpg"%> </div>
+    <div id="background_image"> <%= image_tag "golden_gate3.jpg"%> </div>
 
     <%= button_to 'Best of SF', {controller: "places", action: "itinerary"}, {id: "bestof_button", class: "block"} %>
 
 
 
-    <div id="input_panel" class="home_panel right">
+    <div class="home_panel right">
       <h1>Start a Custom Itinerary</h1>
 
       <%= form_tag({controller: "places", action: "itinerary"}, method: "post") do |f| %>

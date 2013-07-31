@@ -85,24 +85,14 @@ a {
 
 }
 
-#background_image,
-#input_panel, bestof_button {
-  position: absolute;
-
-}
 
 #background_image {
+  position: absolute;
   width: 100%;
-  height: 460px;
+//  height: 460px;
   top: 0;
   left: 0;
   z-index: -1;
-}
-
-#input_panel {
-  z-index: 10;
-  margin-left: 700px;
-  margin-top: 50px;
 }
 
 #bestof_button {
@@ -226,6 +216,7 @@ footer {
   height: 81px;
   font-size: 14px;
   clear: both;
+  margin-top: 20%;
   div.wrapper {
     padding: 15px;
     img {
@@ -285,6 +276,9 @@ div.home_panel {
     float: right;
     //margin-top: -50%;
     margin-right: 10%;
+    margin-left: 65%;
+    margin-top: -10%;
+    z-index: 10;
   }
   * {
     margin: 5px 0;
