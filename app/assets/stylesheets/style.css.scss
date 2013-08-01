@@ -86,6 +86,7 @@ a {
 
 
 
+
 }
 
 
@@ -119,7 +120,7 @@ a {
   }
 }
 .go {
-  vertical-align: top;
+  vertical-align: center;
   bottom: 15px;
   position: relative;
   padding-left: 10px;
@@ -190,44 +191,41 @@ header {
 
 #content {
 
-  min-height: 650px;
-  overflow:auto;
+  min-height: 600px;
+  min-width: 450px;
+
   div.wrapper {
 
     width:100%;
     margin: 0px;
-    div.or{
-      position: absolute;
-      margin-top: 18%;
-      margin-left: 65% ;
-      font-size: 17px;
-      font-weight: bold;
-    }
+
     img {
       position: absolute;
       width: 100%;
-      height: 650px;
+      height: 600px;
       z-index: -1;
     }
-  }
-  #bestof_button {
+    #bestof_button {
+      float: right;
+      margin-right: 40%;
+      margin-left: 12%;
 
-    float: left;
-    margin-left: 45%;
-    margin-top: 16%;
-    height: 75px;
-    width: 220px;
-    font-size: 17px;
-    //font-weight: bold;
-    border-radius: 10px;
+      margin-top: 20%;
+      height: 75px;
+      width: 250px;
+      font-size: 17px;
+      //font-weight: bold;
+      border-radius: 10px;
 
-    &:hover {
-      color: #3f3e3d;
-      border: 1px solid #3f3e3d;
+      &:hover {
+        color: #3f3e3d;
+        border: 1px solid #3f3e3d;
+      }
+
+
     }
-
-
   }
+
 
   div.itinerary {
     width: $large-content-width;
@@ -306,13 +304,14 @@ div.home_panel {
   border-radius: 6px;
   font-size: 14px;
   &.right {
-    position: absolute;
+   // position: absolute;
+    //display: inline-block;
     width: 333px;
-    height: 352px;
+    height: 362px;
     float: right;
-    margin-right: 8%;
-    margin-left: 70%;
-    margin-top: 7%;
+    margin-right: 5%;
+    margin-left: 75%;
+    margin-top: -18%;
 
   }
   * {
@@ -546,7 +545,9 @@ div.block {
   margin: auto;
   margin-bottom: 50px
 }
-
+.error {
+  color: #ff4500;
+}
 
 
 //for detail page
@@ -593,5 +594,7 @@ div.block {
 
 
   }
+
+
 
 }

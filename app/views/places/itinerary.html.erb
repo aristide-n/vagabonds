@@ -54,7 +54,7 @@
                     names[<%= day %>] = [];
                     markers[<%= day %>] = [];
                     <% @recommended_places[day].each do |place|%>
-                      addresses[<%= day %>].push("<%= place.address.gsub("\n", " ") %>");
+                      addresses[<%= day %>].push("<%= place.address.html_safe %>");
                       names[<%= day %>].push("<%= place.name.html_safe %>");
                     <% end %>
                   <% end %>
