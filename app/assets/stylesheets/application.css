@@ -12,3 +12,5 @@
  *= require style
  *= require_tree .
  */
+
+@import "style.css.scss";
