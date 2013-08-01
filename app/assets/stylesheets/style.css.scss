@@ -81,7 +81,9 @@ a {
 .wrapper {
  // width: $content-width;
   margin: auto;
-  //position: relative;
+  position: relative;
+
+
 
 }
 
@@ -165,6 +167,28 @@ header {
   }
 }
 
+#feedback {
+  z-index: 10;
+  float: right;
+  //position: fixed;
+  //top: 50%;
+  margin-top: 3%;
+  margin-right: 6%;
+  left: 0px;
+  height:1.5em;
+  width:7em;
+  display: inline-block;
+  transform: rotate(-90 deg);
+  -webkit-transform: rotate(-90 deg);
+  -moz-transform: rotate(-90 deg);
+  -o-transform:rotate(-90 deg);
+
+
+  &:hover {
+    color: #3f3e3d;
+  }
+}
+
 #content {
 
   min-height: 460px;
@@ -172,6 +196,13 @@ header {
 
     width:100%;
     margin: 0px;
+    div.or{
+      position: absolute;
+      margin-top: 18%;
+      margin-left: 63.5% ;
+      font-size: 17px;
+      font-weight: bold;
+    }
     img {
       position: absolute;
       width: 100%;
@@ -182,12 +213,13 @@ header {
   #bestof_button {
 
     float: left;
-    margin-left: 40%;
-    //margin-top: 10%;
-    height: 100px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 4px;
+    margin-left: 45%;
+    margin-top: 16%;
+    height: 75px;
+    width: 220px;
+    font-size: 17px;
+    //font-weight: bold;
+    border-radius: 10px;
 
     &:hover {
       color: #3f3e3d;
@@ -214,6 +246,11 @@ footer {
     img {
       float:right;
     }
+  }
+
+  a {
+    padding: 5px;
+    float: right;
   }
 }
 
@@ -263,12 +300,13 @@ div.home_panel {
   border-radius: 6px;
   font-size: 14px;
   &.right {
+    position: absolute;
     width: 333px;
     height: 352px;
     float: right;
-    margin-right: 10%;
-    margin-left: 65%;
-    //margin-top: -12%;
+    margin-right: 8%;
+    margin-left: 70%;
+    margin-top: 7%;
 
   }
   * {
