@@ -92,7 +92,8 @@ a {
 
 .wrapper2 {
   text-align: center;
-  padding: 8px;
+  padding: 5px;
+  overflow:auto;
   input {
     width: 125px;
     height: 28px;
@@ -120,6 +121,7 @@ a {
   vertical-align: top;
   bottom: 15px;
   position: relative;
+  padding-left: 10px;
 }
 .activity {
   border: 2px solid #cde69c;
@@ -133,19 +135,19 @@ a {
 
 header {
   background: url(/assets/bg-header.png);
-  height: 119px;
+  height: 95px;
   width: 100%;
   padding-top: 6px;
   div.wrapper1 {
    // text-align: center;
-    height: 115px;
+    height: 94px;
     background: url(/assets/bg_header.png);
 
     img {
-      width: 354px;
-      position: relative;
-      top: 2px;
-      padding-left: 4%;
+      width: 280px;
+
+      padding-top: 3px;
+      padding-left: 5%;
     }
     span {
       font-style:italic;
@@ -157,13 +159,7 @@ header {
       bottom: 30px;
     //  float: right;
     }
-    form {
-      display: inline;
 
-      input {
-        margin: 0 0 0 14px;
-      }
-    }
   }
 }
 
@@ -191,7 +187,8 @@ header {
 
 #content {
 
-  min-height: 460px;
+  min-height: 650px;
+  overflow:auto;
   div.wrapper {
 
     width:100%;
@@ -199,7 +196,7 @@ header {
     div.or{
       position: absolute;
       margin-top: 18%;
-      margin-left: 63.5% ;
+      margin-left: 65% ;
       font-size: 17px;
       font-weight: bold;
     }
@@ -237,10 +234,10 @@ header {
 
 footer {
   background: url(/assets/bg-footer.png);
-  height: 75px;
+  height: 60px;
   font-size: 14px;
   clear: both;
-  margin-top: 10%;
+
   div.wrapper {
     padding: 15px;
     img {
@@ -363,7 +360,7 @@ div.block {
   -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.2);
   -moz-box-shadow: 0 1px 4px rgba(0,0,0,.2);
   -o-box-shadow: 0 1px 4px rgba(0,0,0,.2);
-  font-size: 20px;
+  font-size: 16px;
   font-weight:90px;
 
   img {
@@ -378,7 +375,7 @@ div.block {
     cursor: pointer; cursor: hand;
 
     .act-name {
-      font-size: 22px;
+      font-size: 18px;
       font-weight:150px;
       font-family:Georgia,Serif;
       margin-right: 10px;
@@ -516,7 +513,7 @@ div.block {
   }
   #transportTime {
       margin-left: 5px;
-      font-size: 18px;
+      font-size: 16px;
       color: #2e8b57;
   }
 

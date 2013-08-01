@@ -54,7 +54,7 @@
                     names[<%= day %>] = [];
                     markers[<%= day %>] = [];
                     <% @recommended_places[day].each do |place|%>
-                      addresses[<%= day %>].push("<%= place.address.html_safe %>");
+                      addresses[<%= day %>].push("<%= place.address.gsub("\n", " ") %>");
                       names[<%= day %>].push("<%= place.name.html_safe %>");
                     <% end %>
                   <% end %>
@@ -274,17 +274,6 @@
           }
       }
 
-      //Google Analytics Code
-
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-42862507-1', 'vagabond.cc');
-      ga('send', 'pageview');
-
-
 
   </script>
 
@@ -316,7 +305,7 @@
         <span class = "activity">nature</span> |
         <span class = "activity">adventure</span> |
         <span class = "activity">sports</span> |
-        <span class = "activity">nightlife</span> |
+        <span class = "activity">nightlife</span>
       </p>
     </div>
     <!--<input class="auto-update" type="submit" value="Make Itinerary">  -->
