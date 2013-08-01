@@ -81,36 +81,12 @@ a {
 .wrapper {
  // width: $content-width;
   margin: auto;
-  position: relative;
+  //position: relative;
 
 }
 
 
-#background_image {
-  position: absolute;
-  width: 100%;
-//  height: 460px;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
 
-#bestof_button {
-  z-index: 10;
-  float: left;
-  margin-left: 300px;
-  margin-top: 175px;
-  height: 100px;
-  font-size: 16px;
-  font-weight: bold;
-
-  &:hover {
-    color: #3f3e3d;
-    border: 1px solid #3f3e3d;
-  }
-
-
-}
 
 .wrapper2 {
   text-align: center;
@@ -190,19 +166,35 @@ header {
 }
 
 #content {
-  //margin-bottom: 15px;
 
-  // min-height: 560px;
   min-height: 460px;
   div.wrapper {
 
     width:100%;
     margin: 0px;
     img {
-      opacity: 0.8;
+      position: absolute;
       width: 100%;
-      height: 100%;
+      height: 650px;
+      z-index: -1;
     }
+  }
+  #bestof_button {
+
+    float: left;
+    margin-left: 40%;
+    //margin-top: 10%;
+    height: 100px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+
+    &:hover {
+      color: #3f3e3d;
+      border: 1px solid #3f3e3d;
+    }
+
+
   }
   div.itinerary {
     width: $large-content-width;
@@ -213,10 +205,10 @@ header {
 
 footer {
   background: url(/assets/bg-footer.png);
-  height: 81px;
+  height: 75px;
   font-size: 14px;
   clear: both;
-  margin-top: 20%;
+  margin-top: 10%;
   div.wrapper {
     padding: 15px;
     img {
@@ -267,18 +259,17 @@ div.home_panel {
   border: 1px solid $border-color;
   background: white;
   margin: 0;
-  margin-bottom: 29px;
+  //margin-bottom: 29px;
   border-radius: 6px;
   font-size: 14px;
   &.right {
     width: 333px;
     height: 352px;
     float: right;
-    //margin-top: -50%;
     margin-right: 10%;
     margin-left: 65%;
-    margin-top: -10%;
-    z-index: 10;
+    //margin-top: -12%;
+
   }
   * {
     margin: 5px 0;
