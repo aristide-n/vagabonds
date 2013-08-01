@@ -3598,8 +3598,10 @@ elsif ENV['SEEDS_ENV'] == "production"
 
 #-------------------------------------------
 
+elsif ENV['SEEDS_ENV'] == "disabled"
+  puts "DB Seeds are disabled"
 else
 
-  raise "Unknown SEEDS ENVIRONMENT > #{ENV['SEEDS_ENV']} specified! Use \"development\" OR \"production\""
+  raise "Unknown SEEDS ENVIRONMENT > #{ENV['SEEDS_ENV']} specified! Use \"development\" OR \"production\" OR \"disabled\""
 
 end
