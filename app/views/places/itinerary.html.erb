@@ -13,9 +13,12 @@
 
       var places = [];
       var popup_content = [ /* all your popup_content */];
-      var addresses = {}; // {day: [addresses_for the day]}
+      var addresses = {}; // {day: [addresses for the day]}
       var address_position = 0;
-      var markers = {}
+      var names = {}; // {day: [names for the day]}
+      var markers = {};
+
+      var markerPinLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"];
 
       var timeout = 600;
 
@@ -48,12 +51,13 @@
                   // Add markers on the map for activities in the itinerary
                   <% @recommended_places.keys.sort.each do |day|  %>
                     addresses[<%= day %>] = [];
+                    names[<%= day %>] = [];
                     markers[<%= day %>] = [];
                     <% @recommended_places[day].each do |place|%>
-                      addresses[<%= day %>].push("<%= place.address.inspect %>");
+                      addresses[<%= day %>].push("<%= place.address.html_safe %>");
+                      names[<%= day %>].push("<%= place.name.html_safe %>");
                     <% end %>
                   <% end %>
-                  console.log(addresses);   // TODO: no log
 
                   // Add the markers for the first day
                   addMarker(0, 0);
@@ -77,7 +81,10 @@
               var marker = new google.maps.Marker({
                 position: places[markerPosition],
                 map: map,
-                icon:"http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=" + markerPosition + "|a8ec08"
+                title: names[day][markerPosition],
+                icon: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=" +
+                        markerPinLetters[markerPosition] +
+                        "|a8ec08"
               });
               google.maps.event.addListener(marker, 'click', function() {
                 if (!infoWindow) {
@@ -93,10 +100,10 @@
               if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT)
               {
                 setTimeout(function() { addMarker(day, markerPosition); }, (timeout * 3));
-                console.log("OVER_QUERY_LIMIT");
+//                console.log("OVER_QUERY_LIMIT");
               }
               else{
-                console.log(status);
+//                console.log(status);
               }
             }
 
