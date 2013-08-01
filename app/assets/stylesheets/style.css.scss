@@ -83,6 +83,8 @@ a {
   margin: auto;
   position: relative;
 
+
+
 }
 
 
@@ -189,6 +191,26 @@ header {
   }
 }
 
+#feedback {
+  z-index: 10;
+  float: left;
+  position: fixed;
+  top: 50%;
+  left: 0px;
+  height:1.5em;
+  width:7em;
+  display: inline-block;
+  transform: rotate(90 deg);
+  -webkit-transform: rotate(-90 deg);
+  -moz-transform: rotate(-90 deg);
+  -o-transform:rotate(-90 deg);
+
+
+  &:hover {
+    color: #3f3e3d;
+  }
+}
+
 #content {
   //margin-bottom: 15px;
 
@@ -222,6 +244,11 @@ footer {
     img {
       float:right;
     }
+  }
+
+  a {
+    padding: 5px;
+    float: right;
   }
 }
 
