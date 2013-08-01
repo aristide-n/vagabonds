@@ -53,7 +53,7 @@ input[type="checkbox"] {
 
 button {
   @extend input[type="submit"];
-
+  letter-spacing: 0.1em;
 }
 input[type="submit"]{
   height: 36px;
@@ -64,6 +64,7 @@ input[type="submit"]{
   font-weight: bold;
   padding: 0 20px;
   cursor: pointer;
+  letter-spacing: 0.1em;
   &.auto-update {
     display: none;
   }
@@ -170,18 +171,20 @@ header {
 #feedback {
   z-index: 10;
   float: right;
-  //position: fixed;
-  //top: 50%;
-  margin-top: 3%;
-  margin-right: 6%;
-  left: 0px;
+  position: fixed;
+  top: 50%;
+  left: -50px;
   height:1.5em;
   width:7em;
   display: inline-block;
-  transform: rotate(-90 deg);
-  -webkit-transform: rotate(-90 deg);
-  -moz-transform: rotate(-90 deg);
-  -o-transform:rotate(-90 deg);
+
+  /* Rotate */
+  -webkit-transform: rotate(-90deg); // Safari, Chrome
+  -moz-transform: rotate(-90deg); // Firefox
+  -ms-transform: rotate(-90deg); // IE
+  -o-transform: rotate(-90deg); // Opera
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); // Older versions of IE
+  transform: rotate(-90deg); // CSS3 standard
 
 
   &:hover {
@@ -228,6 +231,7 @@ header {
 
 
   }
+
   div.itinerary {
     width: $large-content-width;
     height: 720px;
@@ -249,6 +253,11 @@ footer {
   }
 
   a {
+    padding: 5px;
+    float: right;
+  }
+
+  iframe {
     padding: 5px;
     float: right;
   }
@@ -589,36 +598,3 @@ div.block {
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
