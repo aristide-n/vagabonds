@@ -1,1 +1,14 @@
-<div id="feedback"> <button onclick="window.open('mailto:feedback@vagabond.cc')">Feedback</button> </div>
+<div id="feedback"> <button onclick="feedback();">Feedback</button> </div>
+
+<script>
+
+  function feedback(){
+      var feedbackWindow = window.open() ;
+      var styleString = '<%= stylesheet_link_tag "style.css", :media => "all"%>';
+      feedbackWindow.document.write('<html><head><title>Vagabond: Feedback</title>');
+      feedbackWindow.document.write(styleString);
+      feedbackWindow.document.write('</head><body><%=render :partial => "./layouts/header"%>');
+      feedbackWindow.document.write('<iframe id="fs-survey-iframe" src="http://fluidsurveys.com/surveys/shama-hoque/feedback-for-vagabond/" frameborder="0" style="border: none; zoom:1; width:100%; height: 100%;"></iframe>');
+      feedbackWindow.document.write('</div><%= render :partial => "./layouts/footer" %></br></body></html>');
+  }
+</script>
