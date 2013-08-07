@@ -344,7 +344,7 @@ class Place < ActiveRecord::Base
     place_idx += 1
     places_list[place_idx] = Place.where(name: "Golden Gate Bridge")[0]
     place_idx += 1
-    places_list[place_idx] = Place.where(name: "San Francisco Botanical Garden Society")[0]
+    places_list[place_idx] = Place.where(name: "SF Botanical Garden Society")[0]
     place_idx += 1
     places_list[place_idx] = Place.where(name: "Golden Gate Park")[0]
     place_idx += 1
