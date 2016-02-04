@@ -1,3 +1,5 @@
 #Travel itinerary planning made easy and awesome
 
-http://cmu-vagabonds.herokuapp.com/
+### Demo: http://cmu-vagabonds.herokuapp.com/
+
+![Home View](/../screenshot/ScreenShot.png?raw=true "Home View") 
